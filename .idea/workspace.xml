@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="" />
+    <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Config/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +30,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="20lcJVXP5dOKYSldbiz3oEKIFwC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,7 +42,14 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Config" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,11 +60,24 @@
       <option name="presentableId" value="Default" />
       <updated>1636622543159</updated>
       <workItem from="1636622544369" duration="2207000" />
-      <workItem from="1636624794149" duration="1025000" />
+      <workItem from="1636624794149" duration="9770000" />
+      <workItem from="1637044347379" duration="279000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="161" y="-920" key="SettingsEditor" timestamp="1637044551054">
+      <screen x="-300" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="161" y="-920" key="SettingsEditor/0.23.1440.795/-300.-1057.1920.1057@-300.-1057.1920.1057" timestamp="1637044551054" />
+    <state x="461" y="149" key="SettingsEditor/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637039687489" />
+    <state x="625" y="240" width="670" height="158" key="search.everywhere.popup" timestamp="1637042973252">
+      <screen x="0" y="23" width="1920" height="975" />
+    </state>
+    <state x="2065" y="-318" width="670" height="58" key="search.everywhere.popup/1440.527.1048.747/0.23.1440.798/1440.-553.1920.1057@1440.-553.1920.1057" timestamp="1636627135535" />
+    <state x="625" y="240" width="670" height="158" key="search.everywhere.popup/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637042973252" />
   </component>
 </project>
