@@ -27,7 +27,7 @@ export default defineConfig({
       '^/api': {
         target: 'http://10.176.40.125:8000/', // 后端服务实际地址
         changeOrigin: true, //开启代理
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, '/api')
       }
     }
   },

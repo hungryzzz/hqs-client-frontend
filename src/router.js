@@ -11,14 +11,30 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: '首页',
         title: '首页',
         component: () => import('./views/Home.vue'), //.vue不能省略
-    }
+    },
+
+    {
+        path: '/marking',
+        name: '标注',
+        title: '标注',
+        component: () => import('./views/MarkingHome.vue'), //.vue不能省略
+    },
 ]
+
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
+const defaultTitle = 'AutoMarking | 自动标注'
+router.beforeEach((to, from, next) => {
+    document.title = to.name ? defaultTitle + ' | ' + to.name : defaultTitle
+    next()
+})
+
 export default router

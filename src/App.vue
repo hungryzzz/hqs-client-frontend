@@ -25,6 +25,6 @@ import Header from "./components/Config/Header.vue";
 
 /* 具体内容组件 */
 .detail{
- padding: 10px;
+ padding: 2% 5% 2% 5%
 }
 </style>

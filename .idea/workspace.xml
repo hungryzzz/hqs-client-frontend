@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Config/Header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/css/group.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/group.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/QuestionService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/req.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/MarkingHome.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Config/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Config/Header.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -38,15 +46,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Vue" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.5.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.20.37" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Config" />
     </key>
@@ -61,7 +77,8 @@
       <updated>1636622543159</updated>
       <workItem from="1636622544369" duration="2207000" />
       <workItem from="1636624794149" duration="9770000" />
-      <workItem from="1637044347379" duration="279000" />
+      <workItem from="1637044347379" duration="3404000" />
+      <workItem from="1637054259264" duration="26979000" />
     </task>
     <servers />
   </component>
@@ -69,14 +86,20 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="161" y="-920" key="SettingsEditor" timestamp="1637044551054">
+    <state x="382" y="-720" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1637053503717">
       <screen x="-300" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="161" y="-920" key="SettingsEditor/0.23.1440.795/-300.-1057.1920.1057@-300.-1057.1920.1057" timestamp="1637044551054" />
-    <state x="461" y="149" key="SettingsEditor/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637039687489" />
-    <state x="625" y="240" width="670" height="158" key="search.everywhere.popup" timestamp="1637042973252">
-      <screen x="0" y="23" width="1920" height="975" />
+    <state x="382" y="-720" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.795/-300.-1057.1920.1057@-300.-1057.1920.1057" timestamp="1637053503717" />
+    <state x="161" y="-920" key="SettingsEditor" timestamp="1637053544869">
+      <screen x="-300" y="-1057" width="1920" height="1057" />
     </state>
+    <state x="161" y="-920" key="SettingsEditor/0.23.1440.795/-300.-1057.1920.1057@-300.-1057.1920.1057" timestamp="1637053544869" />
+    <state x="461" y="149" key="SettingsEditor/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637039687489" />
+    <state x="145" y="-822" width="670" height="172" key="search.everywhere.popup" timestamp="1637230615160">
+      <screen x="-480" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="325" y="-822" width="670" height="172" key="search.everywhere.popup/0.23.1440.795/-300.-1057.1920.1057@-300.-1057.1920.1057" timestamp="1637046163402" />
+    <state x="145" y="-822" width="670" height="172" key="search.everywhere.popup/0.23.1440.795/1440.-1057.1680.922/-480.-1057.1920.1057@-480.-1057.1920.1057" timestamp="1637230615160" />
     <state x="2065" y="-318" width="670" height="58" key="search.everywhere.popup/1440.527.1048.747/0.23.1440.798/1440.-553.1920.1057@1440.-553.1920.1057" timestamp="1636627135535" />
     <state x="625" y="240" width="670" height="158" key="search.everywhere.popup/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637042973252" />
   </component>
