@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/css/group.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/group.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/QuestionService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/req.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/MarkingHome.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Config/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Config/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +63,7 @@
       <workItem from="1636622544369" duration="2207000" />
       <workItem from="1636624794149" duration="9770000" />
       <workItem from="1637044347379" duration="3404000" />
-      <workItem from="1637054259264" duration="26979000" />
+      <workItem from="1637054259264" duration="27809000" />
     </task>
     <servers />
   </component>

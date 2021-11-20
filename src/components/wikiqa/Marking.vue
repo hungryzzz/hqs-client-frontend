@@ -138,7 +138,7 @@ export default {
             dev: {color: 'cyan', value: '验证集'},
           },
 
-          possible_addition_words: ['reason', 'time', 'person', 'location', 'way', 'process', 'history'],
+          possible_addition_words: ['reason', 'time', 'person', 'location', 'way', 'process', 'history', 'result'],
           possible_doubt: ['why', 'what', 'who',  'where', 'when', 'which', 'how much', 'how many', 'how', 'whose'],
 
           // 标注的值
@@ -193,6 +193,11 @@ export default {
               this.marking_data.doubt
           )
           this.$message.success('成功提交！')
+          this.marking_data = {
+            keywords: [],
+            addition: [],
+            doubt: ''
+          }
         }
 
         this.question = await QuestionService.show(this.question_id)
