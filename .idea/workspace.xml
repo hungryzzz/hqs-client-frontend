@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/group.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +65,7 @@
       <workItem from="1636622544369" duration="2207000" />
       <workItem from="1636624794149" duration="9770000" />
       <workItem from="1637044347379" duration="3404000" />
-      <workItem from="1637054259264" duration="27809000" />
+      <workItem from="1637054259264" duration="29648000" />
     </task>
     <servers />
   </component>

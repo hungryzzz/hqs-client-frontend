@@ -31,13 +31,13 @@
             <a-tag style="margin-left: auto" :color="tags[item.tag].color">{{ tags[item.tag].value }}</a-tag>
             <!---------------------------- 是否标注  ---------------------------->
             <a-tag style="margin-left: 20px; margin-right: 20px;" :color="item.label ? 'green' : 'gray'">{{ item.label ? '已标注' : '未标注'}}</a-tag>
-            <icon-exclamation-polygon-fill style="font-size: 25px; color: #5c6370; cursor: pointer" @click="openCard(data)"/>
+            <icon-exclamation-polygon-fill style="font-size: 25px; color: #5c6370; cursor: pointer" @click="openCard(item)"/>
           </a-row>
         </a-list-item>
       </a-list>
 
       <a-pagination :curent="current_page" :page-size="page_size" :total="total_count" show-page-size show-total
-                    @page-size-change="changePageSize"
+                    @page-size-change="changePageSize" @change="changePage"
       />
 
 
@@ -103,6 +103,12 @@ export default {
         })
         this.total_count = data['count']
         this.data = data['results']
+      },
+
+      /* 翻页 */
+      async changePage(page){
+        this.current_page = page
+        await this.getQuestions()
       },
 
       /* 打开问题card */

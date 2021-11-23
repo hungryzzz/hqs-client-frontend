@@ -69,6 +69,9 @@
       <div class="flex-row">
         <!---------------------------- 选择框  ---------------------------->
         <a-card title="Extraction" style="width: 30%">
+          <template #extra>
+            <icon-delete @click="marking_data.keywords =[]" />
+          </template>
           <a-checkbox-group direction="vertical" v-model="marking_data.keywords" style="text-align: left;">
             <a-checkbox
                 v-for="(item, index) in question.splits"
@@ -94,6 +97,7 @@
             >
               {{item}}
             </a-tag>
+            property: 偏向本质（是什么， feature: 偏特征（特点
           </a-row>
         </a-card>
 
@@ -138,7 +142,8 @@ export default {
             dev: {color: 'cyan', value: '验证集'},
           },
 
-          possible_addition_words: ['reason', 'time', 'person', 'location', 'way', 'process', 'history', 'result'],
+          possible_addition_words: ['reason', 'time', 'person','mechanism', 'feature',
+            'location', 'way', 'process', 'history', 'result', 'property', 'definition', 'no'],
           possible_doubt: ['why', 'what', 'who',  'where', 'when', 'which', 'how much', 'how many', 'how', 'whose'],
 
           // 标注的值
