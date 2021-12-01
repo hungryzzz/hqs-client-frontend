@@ -19,7 +19,7 @@
 
       <a-progress status="success"
                   :percent="progress.percent"
-                  size="large" :show-text="false"
+                  size="large"
                   style="width: 30%; ">
       </a-progress>
       <a-tag style="margin-left: 20px; border: 1px solid #000">{{progress.labeled}}/{{progress.labeled+progress.unlabeled}}</a-tag>

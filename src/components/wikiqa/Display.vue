@@ -16,7 +16,14 @@
           <a-radio value="labeled">已标注</a-radio>
           <a-radio value="unlabeled">未标注</a-radio>
         </a-radio-group>
-        <a-button type="outline" style="margin-left: auto" @click="$router.push({ path:'/marking'}).catch(e=>{console.log(e)})"> 开始标注 </a-button>
+
+        <a-button type="outline" style="margin-left: auto; margin-right: 10px" @click="$router.push({ path:'/marking'}).catch(e=>{console.log(e)})"> 开始标注 </a-button>
+        <a-tooltip content="下载已标注数据">
+          <a-button  type="outline" status="danger">
+            <a href="/api/marking/download" download="MKQA.json"><icon-cloud-download slot="icon"/> 下载</a>
+
+          </a-button>
+        </a-tooltip>
       </a-row>
 
 

@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/group.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Marking.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MarkingHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MarkingHome.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,8 @@
       <workItem from="1636622544369" duration="2207000" />
       <workItem from="1636624794149" duration="9770000" />
       <workItem from="1637044347379" duration="3404000" />
-      <workItem from="1637054259264" duration="29648000" />
+      <workItem from="1637054259264" duration="30389000" />
+      <workItem from="1638341644792" duration="899000" />
     </task>
     <servers />
   </component>
