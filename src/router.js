@@ -17,6 +17,13 @@ const routes = [
     },
 
     {
+        path: '/start',
+        name: '主页',
+        title: '欢迎民工',
+        component: () => import('./components/squad/Display.vue'), //.vue不能省略
+    },
+
+    {
         path: '/marking',
         name: '标注',
         title: '标注',

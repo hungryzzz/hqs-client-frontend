@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/squad/Display.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/group.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wikiqa/Display.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MarkingHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MarkingHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Vue" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.5.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.37" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/squad" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,11 +47,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/squad" />
+      <recent name="$PROJECT_DIR$/src/assets" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -66,7 +67,8 @@
       <workItem from="1636624794149" duration="9770000" />
       <workItem from="1637044347379" duration="3404000" />
       <workItem from="1637054259264" duration="30389000" />
-      <workItem from="1638341644792" duration="899000" />
+      <workItem from="1638341644792" duration="969000" />
+      <workItem from="1641628259206" duration="3693000" />
     </task>
     <servers />
   </component>
