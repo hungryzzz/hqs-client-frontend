@@ -16,14 +16,15 @@
 <!--        <template #unchecked>未标注</template>-->
 <!--      </a-switch>-->
 
-
+      <a-button  status="warning" @click="$router.push({'path': '/start'})">返回</a-button>
       <a-progress status="success"
                   :percent="progress.percent"
                   size="large"
-                  style="width: 30%; ">
+                  style="width: 30%; margin-left: 20px">
       </a-progress>
       <a-tag style="margin-left: 20px; border: 1px solid #000">{{progress.labeled}}/{{progress.labeled+progress.unlabeled}}</a-tag>
 
+      <span style="margin-left: 20px; color: red; font-weight: bold">当前标注范围: {{range}}</span>
 <!--      <a-button v-if="labeled" style="margin-left: auto; margin-right: 10px; border-color: #2c3e50 ">上一个</a-button>-->
       <a-button  style="border-color: #2c3e50;margin-left: auto; " @click="getFirstUnLabeled">下一个</a-button>
     </a-row>
@@ -35,7 +36,7 @@
 </template>
 
 <script>
-import Marking from "../components/wikiqa/Marking.vue";
+import Marking from "../components/squad/Marking.vue";
 import QuestionService from "../models/QuestionService";
 export default {
   name: "MarkingHome",
@@ -48,7 +49,8 @@ export default {
         labeled: 0,
         unlabeled: 0,
         percent: 0
-      }
+      },
+      range: '0-1000'
     }
   },
   props: {
@@ -58,7 +60,7 @@ export default {
   methods: {
     /* 进入页面时，获取未标注和已标注的count */
     async getProgress(){
-      this.progress = await QuestionService.progress()
+      this.progress = await QuestionService.progress(this.range)
     },
 
     /* 自动获得第一个要标注的 */
@@ -66,7 +68,7 @@ export default {
       await this.getProgress()
       let data = await QuestionService.find(
           {
-            filter: {'label': false},
+            filter: {'label': false, 'range': this.range},
             limit: 1
           },
       )
@@ -79,8 +81,11 @@ export default {
   },
 
   async mounted() {
-
+    let range = localStorage.getItem('range')
+    if (range==null){range='1-1000'}
+    this.range=range
     await this.getFirstUnLabeled()
+
   },
 }
 </script>

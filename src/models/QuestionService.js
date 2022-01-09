@@ -18,16 +18,14 @@ export default class QuestionService{
         return await Get(`/api/marking/show/${qid}`)
     }
 
-    static async progress(){
-        return await Get(`/api/marking/progress`)
+    static async progress(range){
+        return await Get(`/api/marking/progress/${range}`)
     }
 
-    static async save(qid, keywords, addition, doubt){
+    static async save(qid, keywords){
         return await Post(`/api/marking/save`, {
             id: qid,
             keywords: keywords,
-            addition: addition,
-            doubt: doubt
         })
     }
 }

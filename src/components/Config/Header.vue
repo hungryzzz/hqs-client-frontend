@@ -7,7 +7,7 @@
  */
  -->
 <template>
-  <a-row class="group-header" align="center">
+  <a-row class="group-header" align="center" style="font-weight: bold;">
 
     <div style="background: #d3fcd7; height: 40px; width: 43px; border-radius: 5px;">
       <img :src="logo" height="35" />
@@ -15,11 +15,12 @@
 
 
     <!---------------------------- 标题: 自动标注工具  ---------------------------->
-    <span style="font-weight: bold; font-size: 28px; font-style: italic; margin-left: 20px; cursor: pointer"
+    <span style=" font-size: 28px; font-style: italic; margin-left: 20px; cursor: pointer"
           @click="$router.push({ path:'/'}).catch(e=>{console.log(e)})"
     >
-      Auto<span style="color: #f6e3b3">Marking</span>
+      Auto<span style="color: #f6e3b3">Labeling</span>
     </span>
+
     <!---------------------------- copyright  ---------------------------->
     <span style=" color: #b9c5dd; margin-left: auto; font-weight: bold; font-family: Monaco; font-size: 18px; ">
       Copyright © fduxuan

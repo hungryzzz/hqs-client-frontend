@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f810577-dec5-4cca-992b-8e67e2968320" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/squad/Display.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/squad/Marking.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Config/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Config/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/squad/Display.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/squad/Display.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/QuestionService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/QuestionService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MarkingHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MarkingHome.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +72,7 @@
       <workItem from="1637044347379" duration="3404000" />
       <workItem from="1637054259264" duration="30389000" />
       <workItem from="1638341644792" duration="969000" />
-      <workItem from="1641628259206" duration="3693000" />
+      <workItem from="1641628259206" duration="11312000" />
     </task>
     <servers />
   </component>
@@ -92,5 +96,17 @@
     <state x="145" y="-822" width="670" height="172" key="search.everywhere.popup/0.23.1440.795/1440.-1057.1680.922/-480.-1057.1920.1057@-480.-1057.1920.1057" timestamp="1637230615160" />
     <state x="2065" y="-318" width="670" height="58" key="search.everywhere.popup/1440.527.1048.747/0.23.1440.798/1440.-553.1920.1057@1440.-553.1920.1057" timestamp="1636627135535" />
     <state x="625" y="240" width="670" height="158" key="search.everywhere.popup/1920.158.1680.922/0.23.1920.975@0.23.1920.975" timestamp="1637042973252" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/squad/Marking.vue</url>
+          <line>55</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

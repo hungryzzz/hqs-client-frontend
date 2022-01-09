@@ -24,7 +24,7 @@ const routes = [
     },
 
     {
-        path: '/marking',
+        path: '/labeling',
         name: '标注',
         title: '标注',
         component: () => import('./views/MarkingHome.vue'), //.vue不能省略
@@ -38,7 +38,7 @@ const router = createRouter({
     routes
 })
 
-const defaultTitle = 'AutoMarking | 自动标注'
+const defaultTitle = 'AutoLabeling | 自动标注'
 router.beforeEach((to, from, next) => {
     document.title = to.name ? defaultTitle + ' | ' + to.name : defaultTitle
     next()

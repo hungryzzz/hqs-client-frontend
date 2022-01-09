@@ -11,17 +11,25 @@
 
       <!---------------------------- 搜索  ---------------------------->
       <a-row class="flex-text-left" style="margin-bottom: 20px">
-        <a-radio-group type="button" v-model="mode" @change="getQuestions">
+        <a-radio-group style="margin-right: 50px" type="button" v-model="mode" @change="getQuestions">
           <a-radio value="all">全部</a-radio>
           <a-radio value="labeled">已标注</a-radio>
           <a-radio value="unlabeled">未标注</a-radio>
         </a-radio-group>
+        <span style="font-weight: bold; color: red; margin-right: 10px"> !! 选择标注范围 !! </span>
+        <a-select style="width: 150px" placeholder="选择标注范围" @change="setRange" v-model="range">
+          <a-option>1-1000</a-option>
+          <a-option>1001-2000</a-option>
+          <a-option>2001-3000</a-option>
+          <a-option>3001-4000</a-option>
+          <a-option>4001-5000</a-option>
+          <a-option>5001-6000</a-option>
+        </a-select>
 
-        <a-button type="outline" style="margin-left: auto; margin-right: 10px" @click="$router.push({ path:'/marking'}).catch(e=>{console.log(e)})"> 开始标注 </a-button>
+        <a-button type="outline" style="margin-left: auto; margin-right: 10px" @click="$router.push({ path:'/labeling'}).catch(e=>{console.log(e)})"> 开始标注 </a-button>
         <a-tooltip content="下载已标注数据">
           <a-button  type="outline" status="danger">
             <a href="/api/marking/download" download="ARLQA.json"><icon-cloud-download slot="icon"/> 下载</a>
-
           </a-button>
         </a-tooltip>
       </a-row>
@@ -48,7 +56,7 @@
       />
 
 
-      <a-modal :footer="false" :visible="visible"  @cancel="visible=false" style="width: 100%" class="whole-drawer">
+      <a-modal :footer="false" :visible="visible"  @cancel="visible=false" style="width: 100%; height: 100%" class="whole-drawer">
         <Marking v-if="visible" :qid="current_question_id"></Marking>
       </a-modal>
     </a-row>
@@ -58,7 +66,7 @@
 <script>
 
 import QuestionService from "../../models/QuestionService";
-import Marking from "../../components/wikiqa/Marking.vue";
+import Marking from "../../components/squad/Marking.vue";
 
 export default {
     name: "Display",
@@ -75,10 +83,11 @@ export default {
           total_count: 0,
           current_question_id: "",
           data: [],
+          range: '1-1000',
           tags: {
             train: {color: 'arcoblue', value: '训练集'},
-            test: {color: 'orange', value: '测试集'},
-            dev: {color: 'cyan', value: '验证集'},
+            test: {color: 'cyan', value: '测试集'},
+            dev: {color: 'orange', value: '验证集'},
           },
 
 
@@ -99,9 +108,11 @@ export default {
       /* 获取问题 */
       async getQuestions(){
         let filter = {}
-        if(this.mode==='labeled'){filter={'label': true}}
-        else if(this.mode==='unlabeled'){ filter = {'label': false}}
-        else{filter={}}
+
+        filter = {'range': this.range}
+        if(this.mode==='labeled'){filter['label'] = true}
+        else if(this.mode==='unlabeled'){ filter['label'] = false}
+        console.log(filter)
 
         let data = await QuestionService.find({
           filter: filter,
@@ -122,10 +133,19 @@ export default {
       openCard(question){
         this.current_question_id = question.id
         this.visible = true
+      },
+
+      async setRange(){
+        console.log(this.range)
+        localStorage.setItem('range', this.range)
+        await this.getQuestions()
       }
     },
 
     async mounted(){
+      let range = localStorage.getItem('range')
+      if (range==null){range='1-1000'}
+      this.range=range
       await this.getQuestions()
     },
 }
