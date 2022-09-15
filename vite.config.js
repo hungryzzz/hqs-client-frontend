@@ -1,3 +1,11 @@
+/*
+ * @Created on: 2022-09-15 23:38:33
+ * @@LastEditTime: 2022-09-16 01:08:58
+ * @@Author: fduxuan
+ * 
+ * @@Desc: 
+ * 
+ */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -10,9 +18,9 @@ export default defineConfig({
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          'arcoblue-6': '#4785ac',
-          'primary-6': '#4785ac',
-          '--primary-6': '#4785ac',
+          'arcoblue-6': '#12416A',
+          // 'primary-6': '#12416A',
+          'primary-6': '#12416A',
         },
       }
     }

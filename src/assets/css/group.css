@@ -1,5 +1,19 @@
 /* 全局css变量 */
 
+@font-face {
+    font-family: 'SF Pro Text';
+    src: url(../fonts/SF-Pro-Text-Regular.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'SF Pro Text Bold';
+    src: url(../fonts/SF-Pro-Text-Bold.otf) format('otf');
+}
+
+body {
+    font-family: 'SF Pro Text';
+}
+
 .arco-tag{
     font-weight: bold;
 }

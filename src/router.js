@@ -1,4 +1,12 @@
 /*
+ * @Created on: 2022-09-15 23:38:33
+ * @@LastEditTime: 2022-09-16 00:17:10
+ * @@Author: fduxuan
+ * 
+ * @@Desc: 
+ * 
+ */
+/*
  * Created on 2021/11/16 2:12 下午
  *
  * @Author: fduxuan
@@ -11,24 +19,24 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: '/',
-        name: '首页',
-        title: '首页',
+        name: 'Home',
+        title: 'Home',
         component: () => import('./views/Home.vue'), //.vue不能省略
     },
 
-    {
-        path: '/start',
-        name: '主页',
-        title: '欢迎民工',
-        component: () => import('./components/squad/Display.vue'), //.vue不能省略
-    },
+    // {
+    //     path: '/start',
+    //     name: '主页',
+    //     title: '欢迎民工',
+    //     component: () => import('./components/squad/Display.vue'), //.vue不能省略
+    // },
 
-    {
-        path: '/labeling',
-        name: '标注',
-        title: '标注',
-        component: () => import('./views/MarkingHome.vue'), //.vue不能省略
-    },
+    // {
+    //     path: '/labeling',
+    //     name: '标注',
+    //     title: '标注',
+    //     component: () => import('./views/MarkingHome.vue'), //.vue不能省略
+    // },
 ]
 
 
@@ -38,7 +46,7 @@ const router = createRouter({
     routes
 })
 
-const defaultTitle = 'AutoLabeling | 自动标注'
+const defaultTitle = 'HQS AUTOMOTIVE'
 router.beforeEach((to, from, next) => {
     document.title = to.name ? defaultTitle + ' | ' + to.name : defaultTitle
     next()

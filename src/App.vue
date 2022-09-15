@@ -1,17 +1,41 @@
+<!--
+ * @Created on: 2022-09-15 23:38:33
+ * @@LastEditTime: 2022-09-16 02:20:48
+ * @@Author: ring
+ * 
+ * @@Desc: 
+ * 
+-->
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
 import Header from "./components/Config/Header.vue";
+import Login from "./components/Login.vue";
 
 </script>
 
 <template>
-  <Header></Header>
-  <div class="detail">
-    <router-view></router-view>
+  <div>
+    <Header />
+    <div v-if="ifLogin">
+      <router-view></router-view>
+    </div>
+    <Login v-else />
+    
   </div>
+  
 </template>
+
+<script>
+export default {
+  name: "App",
+  data () {
+    return {
+      ifLogin: true,
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -19,12 +43,6 @@ import Header from "./components/Config/Header.vue";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 
-}
-
-/* 具体内容组件 */
-.detail{
- padding: 2% 5% 2% 5%
 }
 </style>

@@ -1,8 +1,17 @@
+/*
+ * @Created on: 2022-09-15 23:38:33
+ * @@LastEditTime: 2022-09-16 01:06:01
+ * @@Author: fduxuan
+ * 
+ * @@Desc: 
+ * 
+ */
 import { createApp } from 'vue'
 import App from './App.vue';
 
 import ArcoVue from '@arco-design/web-vue';
 import '@arco-design/web-vue/dist/arco.css';
+import '@arco-design/web-vue/es/index.less';
 import './assets/css/group.css'
 
 // 额外引入图标库
