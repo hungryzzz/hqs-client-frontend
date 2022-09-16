@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 02:20:48
+ * @@LastEditTime: 2022-09-16 23:23:10
  * @@Author: ring
  * 
  * @@Desc: 
@@ -16,7 +16,7 @@ import Login from "./components/Login.vue";
 
 <template>
   <div>
-    <Header />
+    <Header :ifLogin="ifLogin" />
     <div v-if="ifLogin">
       <router-view></router-view>
     </div>

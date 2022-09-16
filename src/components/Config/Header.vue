@@ -1,19 +1,11 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 01:50:05
- * @@Author: fduxuan
+ * @@LastEditTime: 2022-09-16 23:29:28
+ * @@Author: ring
  * 
  * @@Desc: 
  * 
 -->
-<!--
-   Created on 2021/11/16 1:11 下午
-
-   @Author: fduxuan
-
-   Desc: header
- */
- -->
 <template>
   <a-row class="group-header" align="center">
 
@@ -35,12 +27,12 @@
       Copyright © fduxuan
     </span>
     -->
-    <a-button class="sign-in-btn" type="outline">
+    <a-button v-if="ifLogin" class="sign-in-btn" type="outline">
       <template #icon>
-        <icon-export />
+        <icon-import />
       </template>
       <!-- Use the default slot to avoid extra spaces -->
-      <template #default>LOGIN</template>
+      <template #default>LOGOUT</template>
     </a-button>
 
   </a-row>
@@ -55,12 +47,19 @@ export default {
   name: "Header",
   components: {
   },
+  props: {
+    ifLogin: {
+      type: Boolean,
+      default() {
+        return false;
+      }
+    }
+  },
   data() {
     return {
       logo: logo
     }
   },
-  props: {},
 
   methods: {},
 
