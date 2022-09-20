@@ -10,7 +10,7 @@
         :pagination="false"
         :table-layout-fixed="true">
         <template #status="{ record, rowIndex }">
-          <a-tag color="#f53f3f">{{ record.status }}</a-tag>
+          <a-tag :color="record.status === 'CLOSE' ? '#f53f3f' : '#168cff'">{{ record.status }}</a-tag>
         </template>
         <template #po_num="{ record, rowIndex }">
           <span class="text-bold">{{ record.po_num }}</span>
@@ -141,9 +141,61 @@ export default {
           "part_limit": "2800",
           "line_amount": "$43934.00",
           "part_completed": "2800",
-          "part_remaining": "0",
+          "part_remaining": "400",
           "remaining": "53.32",
-        }
+        },
+        {
+          id: "sd231jksjdk",
+          status: "AVTIVATE",
+          "po_num": "490032832189",
+          "sort_num": "102407",
+          "part_num": ["15645243-97-B", "15645243-97-C"],
+          "start_date": "10/26/21",
+          "line_num": "10",
+          "po_date": "10/26/21",
+          "po_stop_date": "11/26/21",
+          "unit_price": "$3.45",
+          "part_limit": "2800",
+          "line_amount": "$43934.00",
+          "part_completed": "2800",
+          "part_remaining": "0",
+          "remaining": "0.00",
+          "line_sum": 3,
+        },
+        {
+          id: "sdj02219301jdk",
+          status: "AVTIVATE",
+          "po_num": "490032832189",
+          "sort_num": "102407",
+          "part_num": ["15645243-97-B", "15645243-97-C"],
+          "start_date": "10/26/21",
+          "line_num": "30",
+          "po_date": "11/26/21",
+          "po_stop_date": "12/26/21",
+          "unit_price": "$3.45",
+          "part_limit": "232100",
+          "line_amount": "$433213934.00",
+          "part_completed": "2800",
+          "part_remaining": "0",
+          "remaining": "0.00",
+        },
+        {
+          id: "sd00jks31mkk",
+          status: "AVTIVATE",
+          "po_num": "490032832189",
+          "sort_num": "102407",
+          "part_num": ["15645243-97-B", "15645243-97-C"],
+          "start_date": "10/26/21",
+          "line_num": "40",
+          "po_date": "12/26/21",
+          "po_stop_date": "01/26/22",
+          "unit_price": "$3.45",
+          "part_limit": "98300",
+          "line_amount": "$43932134.00",
+          "part_completed": "2800",
+          "part_remaining": "100",
+          "remaining": "31.40",
+        },
       ],
     }
   },
