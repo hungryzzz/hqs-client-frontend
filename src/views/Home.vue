@@ -16,7 +16,7 @@
           <span class="text-bold">{{ record.po_num }}</span>
         </template>
         <template #sort_num="{ record, rowIndex }">
-          <a-link icon status="success">{{ record.sort_num }}</a-link>
+          <a-link icon status="success" @click="handleModalOpen(record)">{{ record.sort_num }}</a-link>
         </template>
         <template #part_num="{ record, rowIndex }">
           <a-space direction="vertical">
@@ -35,19 +35,27 @@
         <template #line_amount="{ record, rowIndex }">
           <span class="text-bold">{{ record.line_amount }}</span>
         </template>
+        <template #billing="{ record, rowIndex }">
+          <a-checkbox value="1"></a-checkbox>
+        </template>
       </a-table>
     </a-space>
+    <DetailModal
+      :visible="detailModalVisible"
+      @handleModalClose="handleModalClose" />
   </div>
 </template>
 
 <script>
-// 216 129 119
+
 import { PoListHeader, SpanHeader } from '../config/PoListHeader.js';
+import DetailModal from '../components/DetailModal.vue';
 
 export default {
   name: "Home",
-  components: {},
-  props: {},
+  components: {
+    DetailModal,
+  },
   setup() {
     const dataSpanMethod = ({ record, column }) => {
       if (record["start_date"] === record["po_date"] && SpanHeader.indexOf(column.dataIndex) !== -1) {
@@ -197,9 +205,17 @@ export default {
           "remaining": "31.40",
         },
       ],
+      detailModalVisible: false,
     }
   },
-  methods: {},
+  methods: {
+    handleModalOpen(record) {
+      this.detailModalVisible = true;
+    },
+    handleModalClose() {
+      this.detailModalVisible = false;
+    }
+  },
   mounted() {}
 }
 </script>

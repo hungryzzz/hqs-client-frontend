@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-16 23:50:04
- * @@LastEditTime: 2022-09-18 01:26:17
+ * @@LastEditTime: 2022-09-21 00:44:59
  * @@Author: ring
  * 
  * @@Desc: 
@@ -8,7 +8,7 @@
  */
 // [header name, width]
 export const PoListHeader = [
-  ["STATUS", "status", 90, "left"],
+  ["STATUS", "status", 120, "left"],
   ["PO#", "po_num", 130, "left"],
   ["SORT#", "sort_num", 110, "left"],
   ["PART#", "part_num", 135, ""],
