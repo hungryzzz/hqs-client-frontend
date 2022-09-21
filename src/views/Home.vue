@@ -72,7 +72,6 @@ export default {
       width: co[2],
       fixed: co[3],
       align: "center",
-      "header-cell-class": co[4],
     }));
 
     return {
