@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-19 00:56:53
- * @@LastEditTime: 2022-09-22 01:24:08
+ * @@LastEditTime: 2022-09-23 00:54:06
  * @@Author: ring
  * 
  * @@Desc: po detail
@@ -14,28 +14,45 @@
       </div>
     </template>
     <a-space direction="vertical" size="large" style="width: 100%">
-      <a-row>
-        <a-range-picker
-          style="width: 254px; marginBottom: 20px;"
-        />
-        &nbsp;&nbsp;
-        <a-button type="primary">Search</a-button>&nbsp;&nbsp;
-        <a-button type="primary">
-          <template #icon>
-            <IconDownload />
-          </template>
-          <template #default>Export Report</template>
-        </a-button>
+      <a-row justify="space-between" align="center">
+        <!--<a-statistic title="T-SORT#" :value="125670" :precision="0" />-->
+        <a-col :span="4">
+          <a-tag size="large" color="#ffb400">T-SORT#&nbsp;&nbsp;125670</a-tag>
+        </a-col>
+        
+        <a-col :span="12">
+          <a-row align="center" justify="end">
+            <a-range-picker
+              style="width: 254px;"
+              :placeholder="['Start Date', 'End Date']"
+            />
+            &nbsp;&nbsp;
+            <a-button type="primary">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <a-button type="primary">
+              <template #icon>
+                <IconDownload />
+              </template>
+              <template #default>Export Report</template>
+            </a-button>
+          </a-row>
+          
+        </a-col>
+
+        
       </a-row>
       
       <a-table
         :columns="columns" 
         :data="detailData" 
         :span-method="dataSpanMethod" 
-        :bordered="{cell: true}"
+        :bordered="{wrapper: true, cell: true}"
         column-resizable
         :pagination="false"
+        :hoverable="false"
         :table-layout-fixed="true">
+        <template #part_num="{ record, rowIndex }">
+          <a-tag>{{ record.part_num }}</a-tag>
+        </template>
       </a-table>
     </a-space>
   </a-modal>
@@ -74,10 +91,19 @@ export default {
   },
   data(){
     const searchDate = ["09/05", "09/06", "09/07", "09/08", "09/09", "09/10", "09/11", "09/12", "09/13"];
+    const DetailTableHeaderStyle1 = {
+      backgroundColor: 'rgb(213, 227, 243)',
+      fontWeight: 'bold',
+    };
+    const DetailTableCellStyle = {
+      "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
+      "Total Inspected": { backgroundColor: 'rgb(253, 244, 211)' },
+    };
     let columns = DetailTableHeader.map(co => {
       let column = {
         title: co[0], 
         dataIndex: co[1].toLowerCase(), 
+        // headerCellStyle: DetailTableHeaderStyle1,
       };
       if (co[0] !== "Date") {
         column = {
@@ -86,16 +112,17 @@ export default {
           width: co[2],
           fixed: co[3],
           align: "center",
+          bodyCellStyle: (record) => DetailTableCellStyle[record.items]
         }
       } else {
         column = {
           ...column,
-          children: searchDate.map(d => ({ title: d, dataIndex: d, width: 110, align: "center" })),
+          children: searchDate.map(d => ({ title: d, dataIndex: d, width: 110, align: "center", bodyCellStyle: (record) => DetailTableCellStyle[record.items] })),
         }
       }
       return column;
     });
-    console.log(columns);
+
     return {
       columns,
       detailData: [

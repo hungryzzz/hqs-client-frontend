@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-16 23:50:04
- * @@LastEditTime: 2022-09-22 01:16:24
+ * @@LastEditTime: 2022-09-23 00:45:14
  * @@Author: ring
  * 
  * @@Desc: 
@@ -34,7 +34,7 @@ export const SpanHeader = [
 ];
 
 export const DetailTableHeader = [
-  ["T-SORT#", "t_sort_num", 120, "left"],
+  // ["T-SORT#", "t_sort_num", 120, "left"],
   ["PART#", "part_num", 140, "left"],
   ["Start Date", "start_date", 110, "left"],
   ["Location", "location", 110, "left"],
