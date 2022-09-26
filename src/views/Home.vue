@@ -50,6 +50,8 @@
 
 import { PoListHeader, SpanHeader } from '../config/PoListHeader.js';
 import DetailModal from '../components/DetailModal.vue';
+import PoListService from '../models/PoListService.js';
+import PoDetailService from '../models/PoDetailService.js';
 
 export default {
   name: "Home",
@@ -213,9 +215,16 @@ export default {
     },
     handleModalClose() {
       this.detailModalVisible = false;
+    },
+    async init() {
+      // const res = await PoListService.find();
+      const res = await PoDetailService.find("101143", "2022-09-04", "2022-09-10");
+      console.log("data", res);
     }
   },
-  mounted() {}
+  mounted() {
+    this.init();
+  }
 }
 </script>
 

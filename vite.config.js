@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 01:08:58
+ * @@LastEditTime: 2022-09-27 00:54:07
  * @@Author: fduxuan
  * 
  * @@Desc: 
@@ -33,7 +33,7 @@ export default defineConfig({
     proxy: { // 本地开发环境通过代理实现跨域，生产环境使用 nginx 转发
       // 正则表达式写法
       '^/api': {
-        target: 'http://10.176.40.125:8000/', // 后端服务实际地址
+        target: 'http://tesla.hqsautomotive.com/', // 后端服务实际地址
         changeOrigin: true, //开启代理
         rewrite: (path) => path.replace(/^\/api/, '/api')
       }
