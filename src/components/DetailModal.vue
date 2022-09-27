@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-19 00:56:53
- * @@LastEditTime: 2022-09-23 00:54:06
+ * @@LastEditTime: 2022-09-28 01:47:37
  * @@Author: ring
  * 
  * @@Desc: po detail
@@ -15,9 +15,8 @@
     </template>
     <a-space direction="vertical" size="large" style="width: 100%">
       <a-row justify="space-between" align="center">
-        <!--<a-statistic title="T-SORT#" :value="125670" :precision="0" />-->
         <a-col :span="4">
-          <a-tag size="large" color="#ffb400">T-SORT#&nbsp;&nbsp;125670</a-tag>
+          <a-tag size="large" color="rgba(72, 16, 97, 70%)">T-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
         </a-col>
         
         <a-col :span="12">
@@ -61,6 +60,13 @@
 <script>
 
 import { DetailTableHeader, DetailSpanHeader } from '../config/PoListHeader.js';
+import { formatDate } from '../utils.js';
+import PoDetailService from '../models/PoDetailService.js';
+
+const DetailTableCellStyle = {
+  "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
+  "Total Inspected": { backgroundColor: 'rgb(253, 244, 211)' },
+};
 
 export default {
   name: "DetailModal",
@@ -72,6 +78,12 @@ export default {
       type: Boolean,
       default() {
         return false;
+      }
+    },
+    sortNum: {
+      type: String,
+      default() {
+        return "";
       }
     }
   },
@@ -89,42 +101,17 @@ export default {
       dataSpanMethod,
     }
   },
-  data(){
-    const searchDate = ["09/05", "09/06", "09/07", "09/08", "09/09", "09/10", "09/11", "09/12", "09/13"];
-    const DetailTableHeaderStyle1 = {
-      backgroundColor: 'rgb(213, 227, 243)',
-      fontWeight: 'bold',
-    };
-    const DetailTableCellStyle = {
-      "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
-      "Total Inspected": { backgroundColor: 'rgb(253, 244, 211)' },
-    };
-    let columns = DetailTableHeader.map(co => {
-      let column = {
-        title: co[0], 
-        dataIndex: co[1].toLowerCase(), 
-        // headerCellStyle: DetailTableHeaderStyle1,
-      };
-      if (co[0] !== "Date") {
-        column = {
-          ...column,
-          slotName: co[1].toLowerCase(),
-          width: co[2],
-          fixed: co[3],
-          align: "center",
-          bodyCellStyle: (record) => DetailTableCellStyle[record.items]
-        }
-      } else {
-        column = {
-          ...column,
-          children: searchDate.map(d => ({ title: d, dataIndex: d, width: 110, align: "center", bodyCellStyle: (record) => DetailTableCellStyle[record.items] })),
-        }
-      }
-      return column;
+  data() {
+    const searchDate = [...Array(7).keys()].map(index => {
+      const date = new Date();
+      date.setDate(date.getDate() - 6 + index);
+      return formatDate(date);
     });
 
+    console.log(searchDate);
     return {
-      columns,
+      searchDate,
+      // columns,
       detailData: [
         {
           t_sort_num: "101143",
@@ -231,18 +218,52 @@ export default {
       ],
     }
   },
-  props: {
-
+  computed: {
+    columns: function () {
+      return DetailTableHeader.map(co => {
+        let column = {
+          title: co[0], 
+          dataIndex: co[1].toLowerCase(), 
+        };
+        if (co[0] !== "Date") {
+          column = {
+            ...column,
+            slotName: co[1].toLowerCase(),
+            width: co[2],
+            fixed: co[3],
+            align: "center",
+            bodyCellStyle: (record) => DetailTableCellStyle[record.items],
+          }
+        } else {
+          column = {
+            ...column,
+            children: this.searchDate.map(d => ({ 
+              title: d.split("-").slice(1).join("/"), 
+              dataIndex: d, 
+              width: 110, 
+              align: "center", 
+              bodyCellStyle: (record) => DetailTableCellStyle[record.items],
+            })),
+          }
+        }
+        return column;
+      });
+    }
   },
-
   methods:{
     handleModalClose () {
       this.$emit("handleModalClose");
+    },
+    async init () {
+      const res = await PoDetailService.find(this.sortNum, "2022-09-01", "2022-09-10");
+      if (res.length > 0) {
+        console.log("data", Object.values(res).flat());
+      }
     }
   },
 
   mounted(){
-
+    this.init();
   },
 }
 </script>

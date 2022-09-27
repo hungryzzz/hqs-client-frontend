@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-16 23:50:04
- * @@LastEditTime: 2022-09-23 00:45:14
+ * @@LastEditTime: 2022-09-28 01:03:31
  * @@Author: ring
  * 
  * @@Desc: 
@@ -12,13 +12,13 @@ export const PoListHeader = [
   ["PO#", "po_num", 130, "left"],
   ["SORT#", "sort_num", 110, "left"],
   ["PART#", "part_num", 135, ""],
-  ["Start Date", "start_date", 100, ""],
-  ["LINE#", "line_num", 70, ""],
-  ["PO Date", "po_date", 95, ""],
-  ["PO Stop Date", "po_stop_date", 125, ""],
+  // ["Start Date", "start_date", 100, ""],
+  ["LINE#", "line", 70, ""],
+  ["PO Date", "po_date", 120, ""],
+  // ["PO Stop Date", "po_stop_date", 125, ""],
   ["Unit Price", "unit_price", 100, ""],
   ["Part Limit", "part_limit", 100, ""],
-  ["Line Amount", "line_amount", 140, ""],
+  ["Line Amount", "line_amount", 130, ""],
   ["Part Completed", "part_completed", 135, ""],
   ["Part Remaining", "part_remaining", 130, ""],
   ["Remaining %", "remaining", 120, "right"],
@@ -30,7 +30,7 @@ export const SpanHeader = [
   "po_num",
   "sort_num",
   "part_num",
-  "start_date",
+  // "start_date",
 ];
 
 export const DetailTableHeader = [
