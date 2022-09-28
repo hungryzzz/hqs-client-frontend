@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 01:06:01
+ * @@LastEditTime: 2022-09-29 00:17:41
  * @@Author: fduxuan
  * 
  * @@Desc: 
@@ -19,6 +19,8 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 
 import router from "./router";
 
+import store from "./store";
+
 import VueClipboard from 'vue-clipboard2'
 
 import "./assets/group.less"
@@ -29,6 +31,7 @@ const app = createApp(App);
 
 app.use(ArcoVue);
 app.use(router);
+app.use(store);
 app.use(ArcoVueIcon);
 app.use(VueClipboard);
 

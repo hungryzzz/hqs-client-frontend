@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-19 00:56:53
- * @@LastEditTime: 2022-09-28 12:02:27
+ * @@LastEditTime: 2022-09-29 01:46:32
  * @@Author: ring
  * 
  * @@Desc: po detail
@@ -13,15 +13,16 @@
         <IconList /> Daily Summary Report
       </div>
     </template>
-    <a-space direction="vertical" size="large" style="width: 100%">
+    <a-space direction="vertical" size="large" class="limit-modal-body">
       <a-row justify="space-between" align="center">
         <a-col :span="4">
-          <a-tag size="large" color="rgba(72, 16, 97, 70%)">T-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
+          <a-tag color="rgba(72, 16, 97, 70%)">T-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
         </a-col>
         
         <a-col :span="12">
           <a-row align="center" justify="end">
             <a-range-picker
+              size="small"
               style="width: 254px;"
               @select="onDateRangeSelect"
               :placeholder="['Start Date', 'End Date']"
@@ -29,7 +30,7 @@
               @clear="onDateRangeClear"
             />
             &nbsp;&nbsp;
-            <a-button type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
             <!--<a-button type="primary">
               <template #icon>
                 <IconDownload />
@@ -39,23 +40,26 @@
           </a-row>
           
         </a-col>
-
-        
       </a-row>
       
-      <a-table
-        :columns="columns" 
-        :data="detailData" 
-        :span-method="dataSpanMethod" 
-        :bordered="{wrapper: true, cell: true}"
-        column-resizable
-        :pagination="false"
-        :hoverable="false"
-        :table-layout-fixed="true">
-        <template #part_num="{ record, rowIndex }">
-          <a-tag>{{ record.part_num }}</a-tag>
-        </template>
-      </a-table>
+      <div style="height: calc(100vh - 217px)">
+        <a-table
+          size="mini"
+          :columns="columns" 
+          :data="detailData" 
+          :span-method="dataSpanMethod" 
+          :bordered="{wrapper: true, cell: true}"
+          column-resizable
+          :pagination="false"
+          :hoverable="false"
+          :table-layout-fixed="true"
+          :scroll="scrollPercent">
+          <template #part_num="{ record, rowIndex }">
+            <a-tag>{{ record.part_num }}</a-tag>
+          </template>
+        </a-table>
+      </div>
+      
     </a-space>
   </a-modal>
 </template>
@@ -81,9 +85,7 @@ const getDefaultDateRange = () => (
 
 export default {
   name: "DetailModal",
-  components:{
-
-  },
+  components:{},
   props: {
     visible: {
       type: Boolean,
@@ -107,9 +109,14 @@ export default {
         }
       }
     };
+
+    const scrollPercent = {
+      y: "100%",
+    };
     
     return {
       dataSpanMethod,
+      scrollPercent,
     }
   },
   data() {
@@ -134,6 +141,7 @@ export default {
             width: co[2],
             fixed: co[3],
             align: "center",
+            // cellStyle: { fontSize: '12px' },
             bodyCellStyle: (record) => DetailTableCellStyle[record.items],
           }
         } else {
@@ -142,8 +150,9 @@ export default {
             children: this.searchDate.map(d => ({ 
               title: d.split("-").slice(1).join("/"), 
               dataIndex: d, 
-              width: 110, 
+              width: 70, 
               align: "center", 
+              // cellStyle: { fontSize: '12px' },
               bodyCellStyle: (record) => DetailTableCellStyle[record.items],
             })),
           }
@@ -171,6 +180,7 @@ export default {
     },
     handleModalClose () {
       this.$emit("handleModalClose");
+      this.onDateRangeClear();
     },
     onDateRangeSelect (valueString, value) {
       this.dateRange = value;
@@ -210,5 +220,14 @@ export default {
   font-weight: 600;
   width: 100%;
   padding: 0 10px;
+}
+.limit-modal-body {
+  width: 100%;
+  min-width: 760px;
+  overflow-x: scroll;
+  height: calc(100vh - 161px);
+}
+.small-font {
+  font-size: 12px;
 }
 </style>

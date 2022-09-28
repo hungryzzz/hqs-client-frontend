@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 23:29:28
+ * @@LastEditTime: 2022-09-29 00:37:38
  * @@Author: ring
  * 
  * @@Desc: 
@@ -27,7 +27,7 @@
       Copyright © fduxuan
     </span>
     -->
-    <a-button v-if="ifLogin" class="sign-in-btn" type="outline">
+    <a-button v-if="ifLogin" class="sign-in-btn" type="outline" @click="handleLogoutBtnClick">
       <template #icon>
         <icon-import />
       </template>
@@ -42,27 +42,28 @@
 <script>
 
 import logo from '../../assets/logo.png';
+import UserService from '../../models/UserService.js';
 
 export default {
   name: "Header",
   components: {
-  },
-  props: {
-    ifLogin: {
-      type: Boolean,
-      default() {
-        return false;
-      }
-    }
   },
   data() {
     return {
       logo: logo
     }
   },
-
-  methods: {},
-
+  computed: {
+    ifLogin() {
+      return this.$store.state.isLogin;
+    }
+  },
+  methods: {
+    async handleLogoutBtnClick() {
+      const res = await UserService.logout();
+      this.$store.commit("setIsLogin", false);
+    },
+  },
   mounted() {
 
   },

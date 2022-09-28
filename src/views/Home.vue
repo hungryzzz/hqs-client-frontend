@@ -8,7 +8,8 @@
         :bordered="{wrapper: true, cell: true}"
         column-resizable
         :pagination="false"
-        :table-layout-fixed="true">
+        :table-layout-fixed="true"
+        :sticky-header="true">
         <template #status="{ record, rowIndex }">
           <a-tag :color="statusColorMap[record.status]">{{ record.status }}</a-tag>
         </template>
@@ -27,13 +28,14 @@
         </template>
         <template #remaining="{ record, rowIndx }">
           <a-tag v-if="record.remaining === 0" color="#00b42a">0.00%</a-tag>
-          <a-tag v-else color="#ffb400">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
+          <a-tag v-else-if="record.remaining < 0.85" color="#ffb400">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
+          <a-tag v-else color="#f53f3f">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
         </template>
         <template #unit_price="{ record, rowIndex }">
-          <span class="text-bold">{{ record.unit_price }}</span>
+          <span class="text-bold">${{ record.unit_price }}</span>
         </template>
         <template #line_amount="{ record, rowIndex }">
-          <span class="text-bold">{{ record.line_amount }}</span>
+          <span class="text-bold">${{ record.line_amount }}</span>
         </template>
         <template #billing="{ record, rowIndex }">
           <a-checkbox :value="record.billing"></a-checkbox>

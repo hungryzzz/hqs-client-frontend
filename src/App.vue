@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 23:23:10
+ * @@LastEditTime: 2022-09-29 00:36:09
  * @@Author: ring
  * 
  * @@Desc: 
@@ -16,7 +16,7 @@ import Login from "./components/Login.vue";
 
 <template>
   <div>
-    <Header :ifLogin="ifLogin" />
+    <Header />
     <div v-if="ifLogin">
       <router-view></router-view>
     </div>
@@ -27,13 +27,24 @@ import Login from "./components/Login.vue";
 </template>
 
 <script>
+
+// User@tesla.com
+// BGK8IWDI
+
 export default {
   name: "App",
   data () {
     return {
-      ifLogin: true,
+      // ifLogin: false,
     }
-  }
+  },
+  computed: {
+    ifLogin() {
+      return this.$store.state.isLogin;
+    }
+  },
+  methods: {},
+  mounted() {}
 }
 </script>
 

@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-16 23:50:04
- * @@LastEditTime: 2022-09-28 11:51:43
+ * @@LastEditTime: 2022-09-29 00:41:03
  * @@Author: ring
  * 
  * @@Desc: 
@@ -16,9 +16,9 @@ export const PoListHeader = [
   ["LINE#", "line", 70, ""],
   ["PO Date", "po_date", 120, ""],
   // ["PO Stop Date", "po_stop_date", 125, ""],
-  ["Unit Price", "unit_price", 100, ""],
+  ["Unit Price($)", "unit_price", 115, ""],
   ["Part Limit", "part_limit", 100, ""],
-  ["Line Amount", "line_amount", 130, ""],
+  ["Line Amount($)", "line_amount", 130, ""],
   ["Part Completed", "part_completed", 135, ""],
   ["Part Remaining", "part_remaining", 130, ""],
   ["Remaining %", "remaining", 120, "right"],
