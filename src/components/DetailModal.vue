@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-19 00:56:53
- * @@LastEditTime: 2022-09-28 01:47:37
+ * @@LastEditTime: 2022-09-28 12:02:27
  * @@Author: ring
  * 
  * @@Desc: po detail
@@ -23,16 +23,19 @@
           <a-row align="center" justify="end">
             <a-range-picker
               style="width: 254px;"
+              @select="onDateRangeSelect"
               :placeholder="['Start Date', 'End Date']"
+              :disabledDate="disabledDate"
+              @clear="onDateRangeClear"
             />
             &nbsp;&nbsp;
-            <a-button type="primary">Search</a-button>&nbsp;&nbsp;&nbsp;
-            <a-button type="primary">
+            <a-button type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <!--<a-button type="primary">
               <template #icon>
                 <IconDownload />
               </template>
               <template #default>Export Report</template>
-            </a-button>
+            </a-button>-->
           </a-row>
           
         </a-col>
@@ -65,8 +68,16 @@ import PoDetailService from '../models/PoDetailService.js';
 
 const DetailTableCellStyle = {
   "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
-  "Total Inspected": { backgroundColor: 'rgb(253, 244, 211)' },
+  "TOTAL": { backgroundColor: 'rgb(253, 244, 211)' },
 };
+
+const getDefaultDateRange = () => (
+  [...Array(7).keys()].map(index => {
+    const date = new Date();
+    date.setDate(date.getDate() - 6 + index);
+    return formatDate(date);
+  })
+);
 
 export default {
   name: "DetailModal",
@@ -102,120 +113,11 @@ export default {
     }
   },
   data() {
-    const searchDate = [...Array(7).keys()].map(index => {
-      const date = new Date();
-      date.setDate(date.getDate() - 6 + index);
-      return formatDate(date);
-    });
-
-    console.log(searchDate);
     return {
-      searchDate,
+      searchDate: getDefaultDateRange(),
       // columns,
-      detailData: [
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "OK",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        },
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "NOK",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        },
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "REWORK",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        },
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "HOLD",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        },
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "Fall Out Rate",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        },
-        {
-          t_sort_num: "101143",
-          part_num: "15645243-97-B",
-          start_date: "09-01",
-          location: "Livermore",
-          items: "Total Inspected",
-          "09/05": 0,
-          "09/06": 0,
-          "09/07": 0,
-          "09/08": 0,
-          "09/09": 0,
-          "09/10": 0,
-          "09/11": 0,
-          "09/12": 0,
-          "09/13": 0,
-          total: 0,
-        }
-      ],
+      detailData: [],
+      dateRange: [],
     }
   },
   computed: {
@@ -250,21 +152,53 @@ export default {
       });
     }
   },
+  watch: {
+    sortNum: async function (value) {
+      if (value.length <= 0) {
+        return [];
+      }
+      await this.getDetailData();
+    },
+    searchDate: async function (value) {
+      await this.getDetailData();
+    },
+  },
   methods:{
+    async getDetailData() {
+      const res = await PoDetailService.find(this.sortNum, this.searchDate[0], this.searchDate[this.searchDate.length-1]);
+      // console.log("data", Object.values(res).flat());
+      this.detailData = Object.values(res).flat();
+    },
     handleModalClose () {
       this.$emit("handleModalClose");
     },
-    async init () {
-      const res = await PoDetailService.find(this.sortNum, "2022-09-01", "2022-09-10");
-      if (res.length > 0) {
-        console.log("data", Object.values(res).flat());
+    onDateRangeSelect (valueString, value) {
+      this.dateRange = value;
+    },
+    disabledDate(current) {
+      const dates = this.dateRange;
+      if (dates && dates.length) {
+        const tooLate = dates[0] && Math.abs((new Date(current) - dates[0]) / (24 * 60 * 60 * 1000)) > 30;
+        const tooEarly = dates[1] && Math.abs((new Date(current) - dates[1]) / (24 * 60 * 60 * 1000)) > 30;
+        return tooEarly || tooLate;
       }
+      return false;
+    },
+    handleSearchBtnClick() {
+      const dateRangeLen = Math.abs((this.dateRange[1] - this.dateRange[0]) / (24 * 60 * 60 * 1000)) + 1;
+      this.searchDate = [...Array(dateRangeLen).keys()].map(index => {
+        const date = new Date(this.dateRange[0]);
+        date.setDate(date.getDate() + index);
+        return formatDate(date);
+      });
+    },
+    onDateRangeClear() {
+      this.dateRange = [];
+      this.searchDate = getDefaultDateRange();
     }
   },
 
-  mounted(){
-    this.init();
-  },
+  mounted() {},
 }
 </script>
 
