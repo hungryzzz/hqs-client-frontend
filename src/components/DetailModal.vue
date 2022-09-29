@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-19 00:56:53
- * @@LastEditTime: 2022-09-29 01:46:32
+ * @@LastEditTime: 2022-09-29 11:14:26
  * @@Author: ring
  * 
  * @@Desc: po detail
@@ -21,14 +21,17 @@
         
         <a-col :span="12">
           <a-row align="center" justify="end">
-            <a-range-picker
-              size="small"
-              style="width: 254px;"
-              @select="onDateRangeSelect"
-              :placeholder="['Start Date', 'End Date']"
-              :disabledDate="disabledDate"
-              @clear="onDateRangeClear"
-            />
+            <a-config-provider :locale="enUS">
+              <a-range-picker
+                size="small"
+                style="width: 254px;"
+                @select="onDateRangeSelect"
+                :placeholder="['Start Date', 'End Date']"
+                :disabledDate="disabledDate"
+                @clear="onDateRangeClear"
+              />
+            </a-config-provider>
+            
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
             <!--<a-button type="primary">
@@ -69,6 +72,7 @@
 import { DetailTableHeader, DetailSpanHeader } from '../config/PoListHeader.js';
 import { formatDate } from '../utils.js';
 import PoDetailService from '../models/PoDetailService.js';
+import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 
 const DetailTableCellStyle = {
   "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
@@ -125,6 +129,7 @@ export default {
       // columns,
       detailData: [],
       dateRange: [],
+      enUS,
     }
   },
   computed: {
