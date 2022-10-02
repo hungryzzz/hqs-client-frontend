@@ -72,21 +72,20 @@ export default {
 
   methods:{
     async handleLoginBtnClick() {
-      console.log(this.email, this.password);
-      const res = await UserService.login(this.email, this.password);
+      await UserService.login(this.email, this.password);
       this.$store.commit("setIsLogin", true);
     },
     handleInputChange(value, field_name) {
       this[field_name] = value;
     },
-    async checkLogin() {
+    async checkLoginInEntry() {
       const res = await UserService.checkLogin();
-      this.$store.commit("setIsLogin", res !== "未登录");
+      this.$store.commit("setIsLogin", res !== "not login");
     }
   },
 
   mounted(){
-    this.checkLogin();
+    this.checkLoginInEntry();
   },
 }
 </script>

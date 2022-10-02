@@ -17,7 +17,7 @@ import Login from "./components/Login.vue";
 <template>
   <div>
     <Header />
-    <div v-if="ifLogin">
+    <div v-if="$store.state.isLogin">
       <router-view></router-view>
     </div>
     <Login v-else />
@@ -39,9 +39,9 @@ export default {
     }
   },
   computed: {
-    ifLogin() {
-      return this.$store.state.isLogin;
-    }
+    // ifLogin() {
+    //   return this.$store.state.isLogin;
+    // }
   },
   methods: {},
   mounted() {}

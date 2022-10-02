@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      logo: logo
+      logo: logo,
     }
   },
   computed: {
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     async handleLogoutBtnClick() {
-      const res = await UserService.logout();
+      await UserService.logout();
       this.$store.commit("setIsLogin", false);
     },
   },

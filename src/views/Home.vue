@@ -27,9 +27,9 @@
           </a-space>
         </template>
         <template #remaining="{ record, rowIndx }">
-          <a-tag v-if="record.remaining === 0" color="#00b42a">0.00%</a-tag>
+          <a-tag v-if="record.remaining === 0" color="#f53f3f">0.00%</a-tag>
           <a-tag v-else-if="record.remaining < 0.85" color="#ffb400">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
-          <a-tag v-else color="#f53f3f">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
+          <a-tag v-else color="#00b42a">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
         </template>
         <template #unit_price="{ record, rowIndex }">
           <span class="text-bold">${{ record.unit_price }}</span>
