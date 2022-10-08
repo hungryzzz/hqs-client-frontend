@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-16 23:50:04
- * @@LastEditTime: 2022-09-29 00:41:03
+ * @LastEditTime: 2022-10-08 16:03:37
  * @@Author: ring
  * 
  * @@Desc: 
@@ -48,4 +48,34 @@ export const DetailSpanHeader = [
   "part_num",
   "start_date",
   "location",
+];
+
+
+/* ------------------ By Hour Header --------------- */
+export const PoListHeaderByHour = [
+  ["STATUS", "status", 120, "left"],
+  ["PO#", "po_num", 130, "left"],
+  ["SORT#", "sort_num", 110, "left"],
+  ["Model Type", "model_type", 130, ""],
+  ["Manpower", "manpower", 130, ""],
+  ["LINE#", "line", 70, ""],
+  ["PO Date", "po_date", 120, ""],
+  // ["PO Stop Date", "po_stop_date", 125, ""],
+  ["Qty UM($)", "qty_um", 115, ""],
+  ["Hour Limit", "hour_limit", 100, ""],
+  
+  ["Hour Completed", "hour_completed", 135, ""],
+  ["Hour Remaining", "hour_remaining", 130, ""],
+  ["Qty Remaining($)", "qty_remaining", 130, ""],
+  ["Remaining %", "remaining", 120, "right"],
+  ["Billing", "billing", 70, "right"],
+];
+
+export const SpanHeaderByHour = [
+  "status",
+  "po_num",
+  "sort_num",
+  "model_type",
+  "manpower"
+  // "start_date",
 ];

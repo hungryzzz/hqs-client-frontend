@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-16 00:17:10
+ * @LastEditTime: 2022-10-08 09:45:40
  * @@Author: fduxuan
  * 
  * @@Desc: 
@@ -19,9 +19,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        title: 'Home',
-        component: () => import('./views/Home.vue'), //.vue不能省略
+        name: 'PoListJob',
+        title: 'PoListJob',
+        component: () => import('./views/PoListJob.vue'), //.vue不能省略
     },
 
     // {

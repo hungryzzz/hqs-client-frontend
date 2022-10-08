@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-29 00:36:09
+ * @LastEditTime: 2022-10-08 15:38:32
  * @@Author: ring
  * 
  * @@Desc: 
@@ -17,7 +17,7 @@ import Login from "./components/Login.vue";
 <template>
   <div>
     <Header />
-    <div v-if="ifLogin">
+    <div v-if="$store.state.isLogin">
       <router-view></router-view>
     </div>
     <Login v-else />
@@ -39,13 +39,14 @@ export default {
     }
   },
   computed: {
-    ifLogin() {
-      return this.$store.state.isLogin;
-    }
+    // ifLogin() {
+    //   return this.$store.state.isLogin;
+    // }
   },
   methods: {},
   mounted() {}
 }
+
 </script>
 
 <style>
