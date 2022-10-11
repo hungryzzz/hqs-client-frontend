@@ -64,9 +64,9 @@ export const PoListHeaderByHour = [
   ["Qty UM($)", "qty_um", 115, ""],
   ["Hour Limit", "hour_limit", 100, ""],
   
-  ["Hour Completed", "hour_completed", 135, ""],
-  ["Hour Remaining", "hour_remaining", 130, ""],
-  ["Qty Remaining($)", "qty_remaining", 130, ""],
+  ["Hour Completed", "hour_completed", 140, ""],
+  ["Hour Remaining", "hour_remaining", 140, ""],
+  ["Qty Remaining($)", "qty_remaining", 145, ""],
   ["Remaining %", "remaining", 120, "right"],
   ["Billing", "billing", 70, "right"],
 ];

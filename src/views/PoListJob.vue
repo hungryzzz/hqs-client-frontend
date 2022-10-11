@@ -13,20 +13,24 @@
       <template #title>
         <icon-layers /> <span style="font-weight: bold">By Uint</span>
       </template>
-      <ByUnit></ByUnit>
+      <div class="tab-content-wrapper">
+        <ByUnit></ByUnit>
+      </div>
     </a-tab-pane>
     <a-tab-pane key="2">
       <template #title>
         <icon-clock-circle/> <span style="font-weight: bold">By Hour</span>
       </template>
-      <ByHour></ByHour>
+      <div class="tab-content-wrapper">
+        <ByHour></ByHour>
+      </div>
     </a-tab-pane>
   </a-tabs>
 </template>
 
 <script>
-import ByUnit from "../components/PoListJob/ByUnit.vue"
-import ByHour from "../components/PoListJob/ByHour.vue"
+import ByUnit from "../components/PoListJob/ByUnit.vue";
+import ByHour from "../components/PoListJob/ByHour.vue";
 export default {
   name: "PoListJob",
   props: {},
@@ -78,4 +82,8 @@ export default {
 
 
 /* #show-tab-icon  */
+.tab-content-wrapper {
+  height: calc(100vh - 140px);
+  overflow: scroll;
+}
 </style>
