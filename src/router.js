@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-15 23:38:33
- * @LastEditTime: 2022-10-08 09:45:40
+ * @LastEditTime: 2022-10-20 22:40:22
  * @@Author: fduxuan
  * 
  * @@Desc: 
@@ -19,10 +19,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
     {
         path: '/',
-        name: 'PoListJob',
-        title: 'PoListJob',
-        component: () => import('./views/PoListJob.vue'), //.vue不能省略
+        name: 'Home',
+        title: 'Home',
+        component: () => import('./views/Home.vue'), //.vue不能省略
     },
+
+    // {
+    //     path: '/sort',
+    //     name: 'SortList',
+    //     title: 'SortList',
+    //     component: () => import('./views/OrdinaryCustomers.vue'), //.vue不能省略
+    // },
 
     // {
     //     path: '/start',

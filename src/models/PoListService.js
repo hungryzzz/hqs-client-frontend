@@ -1,6 +1,6 @@
 /*
  * @Created on: 2022-09-27 00:44:45
- * @LastEditTime: 2022-10-08 15:59:58
+ * @LastEditTime: 2022-10-20 22:28:44
  * @@Author: ring
  * 
  * @@Desc: 
@@ -18,4 +18,7 @@ export default class PoListService {
     return await Get(`/api/sort/getPoListByHour`);
   }
 
+  static async getSortList(){
+    return await Get(`/api/sort/getSortList`);
+  }
 }

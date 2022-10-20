@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-16 00:18:28
- * @@LastEditTime: 2022-09-29 00:34:46
+ * @LastEditTime: 2022-10-20 22:37:09
  * @@Author: ring
  * 
  * @@Desc: login page
@@ -72,8 +72,9 @@ export default {
 
   methods:{
     async handleLoginBtnClick() {
-      await UserService.login(this.email, this.password);
+      let res = await UserService.login(this.email, this.password);
       this.$store.commit("setIsLogin", true);
+      this.$store.commit("setUser", res)
     },
     handleInputChange(value, field_name) {
       this[field_name] = value;
@@ -81,6 +82,10 @@ export default {
     async checkLoginInEntry() {
       const res = await UserService.checkLogin();
       this.$store.commit("setIsLogin", res !== "not login");
+      if(res !== "not login"){
+        this.$store.commit("setUser", res)
+      }
+      
     }
   },
 
