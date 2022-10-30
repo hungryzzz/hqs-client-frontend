@@ -20,6 +20,8 @@
 </template>
 
 <script>
+// User@Vekan.com
+// H8GRN2A7
 import SortCard from "../components/OrdinaryCustomers/SortCard.vue"
 import PoDetailService from "../models/PoListService"
 export default {
