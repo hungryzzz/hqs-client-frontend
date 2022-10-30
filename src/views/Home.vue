@@ -8,7 +8,7 @@
 -->
 <template>
   <div>
-    <PoListJob v-if="$store.state.user=='Tesla'"></PoListJob>
+    <PoListJob v-if="$store.state.user==='Tesla'"></PoListJob>
     <OrdinaryCustomers v-else></OrdinaryCustomers>
   </div>
 </template>

@@ -7,6 +7,13 @@
  * 
 -->
 <template>
+  <div class="table-wrapper">
+    <a-space direction="vertical" size="large" style="width: 100%">
+      <ByUnit v-if="byUnit"></ByUnit>
+      <ByHour v-else></ByHour>
+    </a-space>
+  </div>
+  <!--
   <a-tabs style="margin: 10px" type="card">
     
     <a-tab-pane key="1">
@@ -25,7 +32,7 @@
         <ByHour></ByHour>
       </div>
     </a-tab-pane>
-  </a-tabs>
+  </a-tabs>-->
 </template>
 
 <script>
@@ -35,6 +42,11 @@ export default {
   name: "PoListJob",
   props: {},
   components: {ByUnit, ByHour},
+  computed: {
+    byUnit() {
+      return this.$store.state.byUnit;
+    }
+  },
   data() {
     return {}
   },
@@ -46,6 +58,11 @@ export default {
 </script>
 
 <style scoped>
+.table-wrapper {
+  padding: 5px;
+}
+
+
 /* 一堆魔改使得标签像飞书的sheet */
 ::v-deep(.arco-tabs-content){
     padding-top: 0;

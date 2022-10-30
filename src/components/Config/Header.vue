@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-09-15 23:38:33
- * @@LastEditTime: 2022-09-29 00:37:38
+ * @@LastEditTime: 2022-10-30 23:51:46
  * @@Author: ring
  * 
  * @@Desc: 
@@ -27,13 +27,32 @@
       Copyright © fduxuan
     </span>
     -->
-    <a-button v-if="ifLogin" class="sign-in-btn" type="outline" @click="handleLogoutBtnClick">
-      <template #icon>
-        <icon-import />
-      </template>
-      <!-- Use the default slot to avoid extra spaces -->
-      <template #default>LOGOUT</template>
-    </a-button>
+    <span class="sign-in-btn" >
+      <a-button v-if="ifLogin && ifTesla" :class="byUnit ? 'button-hover' : ''" @click="e => handleChangeUnitOrHour(true)">
+        <template #icon>
+          <icon-layers />
+        </template>
+        <!-- Use the default slot to avoid extra spaces -->
+        <template #default>By Unit</template>
+      </a-button>
+      &nbsp;
+      <a-button v-if="ifLogin && ifTesla" :class="byUnit ? '' : 'button-hover'" @click="e => handleChangeUnitOrHour(false)">
+        <template #icon>
+          <icon-clock-circle/>
+        </template>
+        <!-- Use the default slot to avoid extra spaces -->
+        <template #default>By Hour</template>
+      </a-button>
+      &nbsp;
+      <a-button v-if="ifLogin" type="outline" @click="handleLogoutBtnClick">
+        <template #icon>
+          <icon-import />
+        </template>
+        <!-- Use the default slot to avoid extra spaces -->
+        <template #default>LOGOUT</template>
+      </a-button>
+    </span>
+    
 
   </a-row>
 
@@ -56,6 +75,12 @@ export default {
   computed: {
     ifLogin() {
       return this.$store.state.isLogin;
+    },
+    ifTesla() {
+      return this.$store.state.user === 'Tesla';
+    },
+    byUnit() {
+      return this.$store.state.byUnit;
     }
   },
   methods: {
@@ -63,6 +88,11 @@ export default {
       await UserService.logout();
       this.$store.commit("setIsLogin", false);
     },
+    handleChangeUnitOrHour(flag) {      
+      if (flag !== this.byUnit) {
+        this.$store.commit("setByUnit", flag);
+      }
+    } 
   },
   mounted() {
 
@@ -80,5 +110,9 @@ export default {
 }
 .sign-in-btn {
   margin-left: auto;
+}
+.button-hover {
+  border-color: transparent !important;
+  background-color: var(--color-secondary-hover) !important;
 }
 </style>
