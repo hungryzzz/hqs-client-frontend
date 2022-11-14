@@ -40,6 +40,14 @@
         <template #billing="{ record, rowIndex }">
           <a-checkbox :value="record.billing"></a-checkbox>
         </template>
+        <template #empty>
+          <a-empty>
+            <template #image>
+              <icon-empty />
+            </template>
+            No data.
+          </a-empty>
+        </template>
       </a-table>
     </a-space>
     <DetailModal

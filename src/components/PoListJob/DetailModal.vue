@@ -60,6 +60,14 @@
           <template #part_num="{ record, rowIndex }">
             <a-tag>{{ record.part_num }}</a-tag>
           </template>
+          <template #empty>
+            <a-empty>
+              <template #image>
+                <icon-empty />
+              </template>
+              No data.
+            </a-empty>
+          </template>
         </a-table>
       </div>
       

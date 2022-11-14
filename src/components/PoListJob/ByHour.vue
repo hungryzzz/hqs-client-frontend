@@ -7,57 +7,65 @@
  * 
 -->
 <template>
-    <div class="table-wrapper">
-      <a-space direction="vertical" size="large" style="width: 100%">
-        <a-table 
-          :columns="columns" 
-          :data="poList" 
-          :span-method="dataSpanMethod" 
-          :bordered="{wrapper: true, cell: true}"
-          column-resizable
-          :pagination="false"
-          :table-layout-fixed="true"
-          :sticky-header="true">
-          <template #status="{ record, rowIndex }">
-            <a-tag :color="statusColorMap[record.status]">{{ record.status }}</a-tag>
-          </template>
-          <template #po_num="{ record, rowIndex }">
-            <span class="text-bold">{{ record.po_num }}</span>
-          </template>
-          <template #sort_num="{ record, rowIndex }">
-            <a-link icon status="success" @click="handleModalOpen(record)">{{ record.sort_num }}</a-link>
-          </template>
-          <template #model_type="{ record, rowIndex }">
-            <a-space direction="vertical">
-              <a-tag  :key="index">
-                {{ record.model_type }}
-              </a-tag>
-            </a-space>
-          </template>
-          <template #remaining="{ record, rowIndx }">
-            <a-tag v-if="record.remaining === 0" color="#f53f3f">0.00%</a-tag>
-            <a-tag v-else-if="record.remaining < 0.85" color="#ffb400">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
-            <a-tag v-else color="#00b42a">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
-          </template>
-          <template #qty_um="{ record, rowIndex }">
-            <span class="text-bold">${{ record.qty_um }}</span>
-          </template>
-          <template #qty_remaining="{ record, rowIndex }">
-            <span class="text-bold">${{ record.qty_remaining }}</span>
-          </template>
-          <template #line_amount="{ record, rowIndex }">
-            <span class="text-bold">${{ record.line_amount }}</span>
-          </template>
-          <template #billing="{ record, rowIndex }">
-            <a-checkbox :value="record.billing"></a-checkbox>
-          </template>
-        </a-table>
-      </a-space>
-      <DetailModal
-        :visible="detailModalVisible"
-        :sortNum="selectedPoDetailSortNum"
-        @handleModalClose="handleModalClose" />
-    </div>
+  <div class="table-wrapper">
+    <a-space direction="vertical" size="large" style="width: 100%">
+      <a-table 
+        :columns="columns" 
+        :data="poList" 
+        :span-method="dataSpanMethod" 
+        :bordered="{wrapper: true, cell: true}"
+        column-resizable
+        :pagination="false"
+        :table-layout-fixed="true"
+        :sticky-header="true">
+        <template #status="{ record, rowIndex }">
+          <a-tag :color="statusColorMap[record.status]">{{ record.status }}</a-tag>
+        </template>
+        <template #po_num="{ record, rowIndex }">
+          <span class="text-bold">{{ record.po_num }}</span>
+        </template>
+        <template #sort_num="{ record, rowIndex }">
+          <a-link icon status="success" @click="handleModalOpen(record)">{{ record.sort_num }}</a-link>
+        </template>
+        <template #model_type="{ record, rowIndex }">
+          <a-space direction="vertical">
+            <a-tag  :key="index">
+              {{ record.model_type }}
+            </a-tag>
+          </a-space>
+        </template>
+        <template #remaining="{ record, rowIndx }">
+          <a-tag v-if="record.remaining === 0" color="#f53f3f">0.00%</a-tag>
+          <a-tag v-else-if="record.remaining < 0.85" color="#ffb400">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
+          <a-tag v-else color="#00b42a">{{ parseFloat(record.remaining*100).toFixed(2) }}%</a-tag>
+        </template>
+        <template #qty_um="{ record, rowIndex }">
+          <span class="text-bold">${{ record.qty_um }}</span>
+        </template>
+        <template #qty_remaining="{ record, rowIndex }">
+          <span class="text-bold">${{ record.qty_remaining }}</span>
+        </template>
+        <template #line_amount="{ record, rowIndex }">
+          <span class="text-bold">${{ record.line_amount }}</span>
+        </template>
+        <template #billing="{ record, rowIndex }">
+          <a-checkbox :value="record.billing"></a-checkbox>
+        </template>
+        <template #empty>
+          <a-empty>
+            <template #image>
+              <icon-empty />
+            </template>
+            No data.
+          </a-empty>
+        </template>
+      </a-table>
+    </a-space>
+    <DetailModal
+      :visible="detailModalVisible"
+      :sortNum="selectedPoDetailSortNum"
+      @handleModalClose="handleModalClose" />
+  </div>
   </template>
   
   <script>
