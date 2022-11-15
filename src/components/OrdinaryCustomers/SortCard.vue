@@ -1,6 +1,6 @@
 <!--
  * @Created on: 2022-10-17 20:08:58
- * @LastEditTime: 2022-10-20 22:05:06
+ * @LastEditTime: 2022-11-05 15:50:49
  * @Author: fduxuan
  * 
  * @Desc:  
@@ -30,6 +30,12 @@
             
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <a-button type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
+              <template #icon>
+                <IconDownload />
+              </template>
+              <template #default>Export Report</template>
+            </a-button>
           </a-row>
           
         </a-col>
@@ -52,14 +58,6 @@
             :scroll="scrollPercent">
             <template #part_num="{ record, rowIndex }">
                 <a-tag>{{ record.part_num }}</a-tag>
-            </template>
-            <template #empty>
-              <a-empty>
-                <template #image>
-                  <icon-empty />
-                </template>
-                No data.
-              </a-empty>
             </template>
             </a-table>
         </div>
@@ -195,7 +193,9 @@ export default {
     onDateRangeClear() {
       this.dateRange = [];
       this.searchDate = getDefaultDateRange();
-    }
+    },
+
+    
   },
   
   mounted() {},
