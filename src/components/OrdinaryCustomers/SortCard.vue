@@ -45,7 +45,7 @@
      <!---------------表格 ------------->
      <!-- <div style="height: calc(100vh - 217px)"> -->
         <div style="width: 100%; overflow-x: scroll;">
-            <a-table
+          <a-table
             size="mini"
             :columns="columns" 
             :data="detailData" 
@@ -59,7 +59,15 @@
             <template #part_num="{ record, rowIndex }">
                 <a-tag>{{ record.part_num }}</a-tag>
             </template>
-            </a-table>
+            <template #empty>
+              <a-empty>
+                <template #image>
+                  <icon-empty />
+                </template>
+                No data.
+              </a-empty>
+            </template>
+          </a-table>
         </div>
 
   </a-space>
