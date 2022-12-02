@@ -34,7 +34,7 @@
             
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
-            <a-button type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
+            <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
               <template #icon>
                 <IconDownload />
               </template>

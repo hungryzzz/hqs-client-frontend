@@ -7,7 +7,7 @@
  * 
 -->
 <template>
-  <a-space style="padding: 10px 5%; width: 90%"  direction="vertical" size="large">
+  <a-space style="padding: 25px 5%; width: 90%"  direction="vertical" size="large">
      <a-row align="center" justify="space-between">
         <!---------------Sort number ------------->
         <a-col :span="4" align="start">
@@ -30,11 +30,17 @@
             
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
-            <a-button type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
+            <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
               <template #icon>
                 <IconDownload />
               </template>
               <template #default>Export Report</template>
+            </a-button>&nbsp;&nbsp;&nbsp;
+            <a-button size="small" type="primary" @click="handleInvoiceClick">
+              <template #icon>
+                <icon-cloud-download />
+              </template>
+              <template #default>Invoice</template>
             </a-button>
           </a-row>
           
@@ -202,7 +208,9 @@ export default {
       this.dateRange = [];
       this.searchDate = getDefaultDateRange();
     },
-
+    handleInvoiceClick() {
+      this.$message.warning("The invoice is not yet open!");
+    }
     
   },
   
