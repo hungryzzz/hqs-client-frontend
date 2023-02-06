@@ -8,73 +8,78 @@
 -->
 <template>
   <a-space style="padding: 25px 5%; width: 90%"  direction="vertical" size="large">
-     <a-row align="center" justify="space-between">
-        <!---------------Sort number ------------->
-        <a-col :span="4" align="start">
-          <a-tag color="rgba(72, 16, 97, 70%)">S-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
-        </a-col>
-        
-        <!---------------日期搜索 ------------->
-        <a-col :span="12">
-          <a-row align="center" justify="end">
-            <a-config-provider :locale="enUS">
-              <a-range-picker
-                size="small"
-                style="width: 254px;"
-                @select="onDateRangeSelect"
-                :placeholder="['Start Date', 'End Date']"
-                :disabledDate="disabledDate"
-                @clear="onDateRangeClear"
-              />
-            </a-config-provider>
-            
-            &nbsp;&nbsp;
-            <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
-            <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
-              <template #icon>
-                <IconDownload />
-              </template>
-              <template #default>Export Report</template>
-            </a-button>&nbsp;&nbsp;&nbsp;
-            <a-button size="small" type="primary" @click="handleInvoiceClick">
-              <template #icon>
-                <icon-cloud-download />
-              </template>
-              <template #default>Invoice</template>
-            </a-button>
-          </a-row>
+    <a-row align="center" justify="space-between">
+      <!---------------Sort number ------------->
+      <a-col :span="4" align="start">
+        <a-tag color="rgba(72, 16, 97, 70%)">S-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
+      </a-col>
+      
+      <!---------------日期搜索 ------------->
+      <a-col :span="20" :wrap="false">
+        <a-row align="center" justify="end">
+          <a-config-provider :locale="enUS">
+            <a-range-picker
+              size="small"
+              style="width: 254px;"
+              @select="onDateRangeSelect"
+              :placeholder="['Start Date', 'End Date']"
+              :disabledDate="disabledDate"
+              @clear="onDateRangeClear"
+            />
+          </a-config-provider>
           
-        </a-col>
-     </a-row>     
+          &nbsp;&nbsp;
+          <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+          <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
+            <template #icon>
+              <IconDownload />
+            </template>
+            <template #default>Export Report</template>
+          </a-button>&nbsp;&nbsp;&nbsp;
+          <a-button size="small" type="primary" @click="handleInvoiceClick">
+            <template #icon>
+              <icon-list />
+            </template>
+            <template #default>Invoice</template>
+          </a-button>
+        </a-row>
+        
+      </a-col>
+    </a-row>     
 
 
      <!---------------表格 ------------->
      <!-- <div style="height: calc(100vh - 217px)"> -->
-        <div style="width: 100%; overflow-x: scroll;">
-          <a-table
-            size="mini"
-            :columns="columns" 
-            :data="detailData" 
-            :span-method="dataSpanMethod" 
-            :bordered="{wrapper: true, cell: true}"
-            column-resizable
-            :pagination="false"
-            :hoverable="false"
-            :table-layout-fixed="true"
-            :scroll="scrollPercent">
-            <template #part_num="{ record, rowIndex }">
-                <a-tag>{{ record.part_num }}</a-tag>
+    <div style="width: 100%; overflow-x: scroll;">
+      <a-table
+        size="mini"
+        :columns="columns" 
+        :data="detailData" 
+        :span-method="dataSpanMethod" 
+        :bordered="{wrapper: true, cell: true}"
+        column-resizable
+        :pagination="false"
+        :hoverable="false"
+        :table-layout-fixed="true"
+        :scroll="scrollPercent">
+        <template #part_num="{ record, rowIndex }">
+            <a-tag>{{ record.part_num }}</a-tag>
+        </template>
+        <template #empty>
+          <a-empty>
+            <template #image>
+              <icon-empty />
             </template>
-            <template #empty>
-              <a-empty>
-                <template #image>
-                  <icon-empty />
-                </template>
-                No data.
-              </a-empty>
-            </template>
-          </a-table>
-        </div>
+            No data.
+          </a-empty>
+        </template>
+      </a-table>
+    </div>
+
+    <invoice-list 
+      :visible="invoiceListVisible"
+      @handleInvoiceListClose="handleInvoiceClick"
+    />
 
   </a-space>
 </template>
@@ -84,6 +89,7 @@ import { DetailTableHeader, DetailSpanHeader } from '../../config/PoListHeader.j
 import { formatDate } from '../../utils.js';
 import PoDetailService from '../../models/PoDetailService.js';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
+import InvoiceList from "./InvoiceList.vue";
 
 const DetailTableCellStyle = {
   "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
@@ -109,7 +115,9 @@ export default {
       }
     }
   },
-  components: {},
+  components: {
+    InvoiceList,
+  },
 
   setup() {
     const dataSpanMethod = ({ record, column }) => {
@@ -137,6 +145,7 @@ export default {
       detailData: [],
       dateRange: [],
       enUS,
+      invoiceListVisible: false,
     }
   },
   computed:{
@@ -209,8 +218,8 @@ export default {
       this.searchDate = getDefaultDateRange();
     },
     handleInvoiceClick() {
-      this.$message.warning("The invoice is not yet open!");
-    }
+      this.invoiceListVisible = !this.invoiceListVisible;
+    },
     
   },
   
