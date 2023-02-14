@@ -184,10 +184,10 @@ export default {
   },
   methods: {
     async getDetailData() {
-        console.log(this.sortNum)
-        const res = await PoDetailService.find(this.sortNum, this.searchDate[0], this.searchDate[this.searchDate.length-1]);
-        // console.log("data", Object.values(res).flat());
-        this.detailData = Object.values(res).flat();
+      console.log(this.sortNum)
+      const res = await PoDetailService.find(this.sortNum, this.searchDate[0], this.searchDate[this.searchDate.length-1]);
+      // console.log("data", Object.values(res).flat());
+      this.detailData = Object.values(res).flat();
     },
     handleModalClose () {
       this.$emit("handleModalClose");
@@ -223,10 +223,14 @@ export default {
     
   },
   
-  mounted() {},
+  mounted() {
+    console.log(this.searchDate);
+    this.getDetailData();
+  },
   unmounted() {},
   watch: {
     searchDate: async function (value) {
+      console.log("searchdate", value);
       await this.getDetailData();
     },
   }

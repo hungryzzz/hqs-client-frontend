@@ -11,7 +11,7 @@
     <div class="modal-title">
         <IconList /> Daily Summary Report
     </div>
-    <div v-for="item in this.sortList">
+    <div v-for="item in this.sortList" :key="item">
         <SortCard :sortNum="item" id="item"></SortCard>
     </div>
     

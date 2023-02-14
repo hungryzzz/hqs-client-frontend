@@ -38,7 +38,7 @@
           <span class="text-bold">${{ record.line_amount }}</span>
         </template>
         <template #billing="{ record, rowIndex }">
-          <a-checkbox :value="record.billing"></a-checkbox>
+          <a-checkbox :model-value="Boolean(record.billing)"></a-checkbox>
         </template>
         <template #empty>
           <a-empty>
