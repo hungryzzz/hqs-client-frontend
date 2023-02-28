@@ -25,6 +25,7 @@
               :placeholder="['Start Date', 'End Date']"
               :disabledDate="disabledDate"
               @clear="onDateRangeClear"
+              :timePickerProps="{hideDisabledOptions: true}"
             />
           </a-config-provider>
           
@@ -90,6 +91,7 @@ import { formatDate } from '../../utils.js';
 import PoDetailService from '../../models/PoDetailService.js';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 import InvoiceList from "./InvoiceList.vue";
+import dayjs from "dayjs";
 
 const DetailTableCellStyle = {
   "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
@@ -184,7 +186,7 @@ export default {
   },
   methods: {
     async getDetailData() {
-      console.log(this.sortNum)
+      // console.log(this.sortNum)
       const res = await PoDetailService.find(this.sortNum, this.searchDate[0], this.searchDate[this.searchDate.length-1]);
       // console.log("data", Object.values(res).flat());
       this.detailData = Object.values(res).flat();
@@ -197,6 +199,9 @@ export default {
       this.dateRange = value;
     },
     disabledDate(current) {
+      if (dayjs(current).isBefore(dayjs("2023-03-01", "YYYY-MM-DD"))) {
+        return true;
+      }
       const dates = this.dateRange;
       if (dates && dates.length) {
         const tooLate = dates[0] && Math.abs((new Date(current) - dates[0]) / (24 * 60 * 60 * 1000)) > 30;
@@ -224,13 +229,13 @@ export default {
   },
   
   mounted() {
-    console.log(this.searchDate);
+    // console.log(this.searchDate);
     this.getDetailData();
   },
   unmounted() {},
   watch: {
     searchDate: async function (value) {
-      console.log("searchdate", value);
+      // console.log("searchdate", value);
       await this.getDetailData();
     },
   }

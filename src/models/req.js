@@ -1,4 +1,12 @@
 /*
+ * @Created on: 2022-09-15 23:38:33
+ * @@LastEditTime: 2023-03-01 01:09:02
+ * @@Author: fduxuan
+ * 
+ * @@Desc: 
+ * 
+ */
+/*
  * Created on 2021/11/18 12:43 下午
  *
  * @Author: fduxuan
@@ -19,7 +27,7 @@ export async function Get(url, config=undefined, disable_message_error=false) {
         throw resp.statusText
     }
     if(data.code !== 0) {
-        console.log(data)
+        // console.log(data)
         if (!disable_message_error){
             Message.error(data.data)
         }
