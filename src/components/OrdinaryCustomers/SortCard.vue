@@ -103,7 +103,7 @@ const getDefaultDateRange = () => (
     const date = new Date();
     date.setDate(date.getDate() - 6 + index);
     return formatDate(date);
-  })
+  }).filter(date => !dayjs(date, "YYYY-MM-DD").isBefore("2023-03-01", "YYYY-MM-DD"))
 );
 
 
