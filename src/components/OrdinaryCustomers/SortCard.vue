@@ -11,7 +11,7 @@
     <a-row align="center" justify="space-between">
       <!---------------Sort number ------------->
       <a-col :span="4" align="start">
-        <a-tag color="rgba(72, 16, 97, 70%)">S-SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
+        <a-tag color="rgba(72, 16, 97, 70%)">SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
       </a-col>
       
       <!---------------日期搜索 ------------->
