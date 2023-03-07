@@ -7,82 +7,84 @@
  * 
 -->
 <template>
-  <a-space style="padding: 25px 5%; width: 90%"  direction="vertical" size="large">
-    <a-row align="center" justify="space-between">
-      <!---------------Sort number ------------->
-      <a-col :span="4" align="start">
-        <a-tag color="rgba(72, 16, 97, 70%)">SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
-      </a-col>
-      
-      <!---------------日期搜索 ------------->
-      <a-col :span="20" :wrap="false">
-        <a-row align="center" justify="end">
-          <a-config-provider :locale="enUS">
-            <a-range-picker
-              size="small"
-              style="width: 254px;"
-              @select="onDateRangeSelect"
-              :placeholder="['Start Date', 'End Date']"
-              :disabledDate="disabledDate"
-              @clear="onDateRangeClear"
-              :timePickerProps="{hideDisabledOptions: true}"
-            />
-          </a-config-provider>
-          
-          &nbsp;&nbsp;
-          <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
-          <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
-            <template #icon>
-              <IconDownload />
-            </template>
-            <template #default>Export Report</template>
-          </a-button>&nbsp;&nbsp;&nbsp;
-          <a-button size="small" type="primary" @click="handleInvoiceClick">
-            <template #icon>
-              <icon-list />
-            </template>
-            <template #default>Invoice</template>
-          </a-button>
-        </a-row>
+  <div class="card-box">
+    <a-space direction="vertical" size="large">
+      <a-row align="center" justify="space-between">
+        <!---------------Sort number ------------->
+        <a-col :span="4" align="start">
+          <a-tag color="rgba(72, 16, 97, 70%)">SORT#&nbsp;&nbsp;{{ sortNum }}</a-tag>
+        </a-col>
         
-      </a-col>
-    </a-row>     
+        <!---------------日期搜索 ------------->
+        <a-col :span="20" :wrap="false">
+          <a-row align="center" justify="end">
+            <a-config-provider :locale="enUS">
+              <a-range-picker
+                size="small"
+                style="width: 254px;"
+                @select="onDateRangeSelect"
+                :placeholder="['Start Date', 'End Date']"
+                :disabledDate="disabledDate"
+                @clear="onDateRangeClear"
+                :timePickerProps="{hideDisabledOptions: true}"
+              />
+            </a-config-provider>
+            
+            &nbsp;&nbsp;
+            <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
+              <template #icon>
+                <IconDownload />
+              </template>
+              <template #default>Export Report</template>
+            </a-button>&nbsp;&nbsp;&nbsp;
+            <a-button size="small" type="primary" @click="handleInvoiceClick">
+              <template #icon>
+                <icon-list />
+              </template>
+              <template #default>Invoice</template>
+            </a-button>
+          </a-row>
+          
+        </a-col>
+      </a-row>     
 
 
-     <!---------------表格 ------------->
-     <!-- <div style="height: calc(100vh - 217px)"> -->
-    <div style="width: 100%; overflow-x: scroll;">
-      <a-table
-        size="mini"
-        :columns="columns" 
-        :data="detailData" 
-        :span-method="dataSpanMethod" 
-        :bordered="{wrapper: true, cell: true}"
-        column-resizable
-        :pagination="false"
-        :hoverable="false"
-        :table-layout-fixed="true"
-        :scroll="scrollPercent">
-        <template #part_num="{ record, rowIndex }">
-            <a-tag>{{ record.part_num }}</a-tag>
-        </template>
-        <template #empty>
-          <a-empty>
-            <template #image>
-              <icon-empty />
-            </template>
-            No data.
-          </a-empty>
-        </template>
-      </a-table>
-    </div>
+      <!---------------表格 ------------->
+      <!-- <div style="height: calc(100vh - 217px)"> -->
+      <div style="width: 100%; overflow-x: scroll;">
+        <a-table
+          size="mini"
+          :columns="columns" 
+          :data="detailData" 
+          :span-method="dataSpanMethod" 
+          :bordered="{wrapper: true, cell: true}"
+          column-resizable
+          :pagination="false"
+          :hoverable="false"
+          :table-layout-fixed="true"
+          :scroll="scrollPercent">
+          <template #part_num="{ record, rowIndex }">
+              <a-tag>{{ record.part_num }}</a-tag>
+          </template>
+          <template #empty>
+            <a-empty>
+              <template #image>
+                <icon-empty />
+              </template>
+              No data.
+            </a-empty>
+          </template>
+        </a-table>
+      </div>
 
-    <invoice-list 
-      :visible="invoiceListVisible"
-      @handleInvoiceListClose="handleInvoiceClick"
-    />
+      <invoice-list 
+        :visible="invoiceListVisible"
+        @handleInvoiceListClose="handleInvoiceClick"
+      />
 
-  </a-space>
+    </a-space>
+  </div>
 </template>
 
 <script>
@@ -250,4 +252,13 @@ export default {
   height: calc(100vh - 161px);
 
 } */
+
+.card-box {
+  margin: 55px 3%;
+  min-width: 90%;
+  border: 0.5px solid #e5e6eb;
+  border-radius: 6px;
+  padding: 25px 20px 5px;
+  box-shadow: 2px 2px 5px #e5e6eb;
+}
 </style>

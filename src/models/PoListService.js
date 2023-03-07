@@ -18,7 +18,11 @@ export default class PoListService {
     return await Get(`/api/sort/getPoListByHour`);
   }
 
-  static async getSortList(){
-    return await Get(`/api/sort/getSortList`);
+  static async getSortList(sort_str){
+    return await Get(`/api/sort/getSortList`, {
+      params: {
+        sort_str,
+      },
+    });
   }
 }

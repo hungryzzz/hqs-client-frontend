@@ -11,6 +11,24 @@
     <div class="modal-title">
         <IconList /> Daily Summary Report
     </div>
+    <div class="search-wapper">
+      <a-input-search 
+        :style="{width:'400px'}" 
+        placeholder="Please enter sort number" 
+        allow-clear 
+        search-button 
+        :max-length="20"
+        @change="v => searchStr = v"
+        @search="getSortList">
+        <template #button-icon>
+          <icon-search/>
+        </template>
+        <template #button-default>
+          Search
+        </template>
+      </a-input-search>
+    </div>
+    
     <div v-for="item in this.sortList" :key="item">
         <SortCard :sortNum="item" id="item"></SortCard>
     </div>
@@ -30,13 +48,16 @@ export default {
   components: {SortCard},
   data() {
     return {
-      sortList: []
+      sortList: [],
+      searchStr: "",
     }
   },
   methods: {
     async getSortList(){
-      this.sortList = await PoDetailService.getSortList()
-    }
+      // console.log("aaa", this.searchStr);
+      this.sortList = await PoDetailService.getSortList(this.searchStr);
+      // console.log(this.sortList);
+    },
   },
   mounted() {
       this.getSortList()
@@ -54,5 +75,9 @@ export default {
   font-weight: 600;
   text-align: left;
   padding: 0 5%;
+}
+.search-wapper {
+  text-align: right;
+  padding: 20px 4% 0px;
 }
 </style>
