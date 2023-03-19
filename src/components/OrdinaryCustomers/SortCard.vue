@@ -8,7 +8,7 @@
 -->
 <template>
   <div class="card-box">
-    <a-space direction="vertical" size="large">
+    <a-space style="width: 100%;" direction="vertical" size="large">
       <a-row align="center" justify="space-between">
         <!---------------Sort number ------------->
         <a-col :span="4" align="start">
@@ -255,7 +255,6 @@ export default {
 
 .card-box {
   margin: 55px 3%;
-  min-width: 90%;
   border: 0.5px solid #e5e6eb;
   border-radius: 6px;
   padding: 25px 20px 5px;
