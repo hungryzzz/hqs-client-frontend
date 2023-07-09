@@ -16,12 +16,17 @@
 import axios from "axios"
 import { Message } from '@arco-design/web-vue'
 
+// const HOST = "https://hqs.droproblem.com";
+const HOST = "";
+
+
 export async function Get(url, config=undefined, disable_message_error=false) {
 
     if(config === undefined) {config = {}}
     if(config.params === undefined) {config.params = {}}
     config.headers = {'Content-Type': 'application/json;charset=UTF-8'}
-    let resp = await axios.get(url, config);
+    config.withCredentials=true
+    let resp = await axios.get(`${HOST}${url}`, config);
     let data = resp.data;
     if(resp.status !== 200) {
         throw resp.statusText
@@ -42,7 +47,7 @@ export async function Post(url, data, config=undefined, disable_message_error=fa
         config['headers'] = {'Content-Type': 'application/json;charset=UTF-8'}
     }
     config.withCredentials=true
-    let resp = await axios.post(url, data, config)
+    let resp = await axios.post(`${HOST}${url}`, data, config)
 
     let respData = resp.data
     if(resp.status !== 200) {

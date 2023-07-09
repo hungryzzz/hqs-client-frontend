@@ -38,7 +38,7 @@ export const DetailTableHeader = [
   ["PART#", "part_num", 140, "left"],
   ["Start Date", "start_date", 120, "left"],
   ["Location", "location", 110, "left"],
-  ["Items", "items", 135, "left"],
+  ["Items", "items", 110, "left"],
   ["Date", "date"],
   ["Total", "total", 110, "right"],
 ];

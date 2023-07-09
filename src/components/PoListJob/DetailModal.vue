@@ -34,6 +34,13 @@
             
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
+            <a-button size="small" type="primary" @click="onDateRangeClear">
+              <template #icon>
+                <IconCloseCircle />
+              </template>
+              <!-- Use the default slot to avoid extra spaces -->
+              <template #default>Clear</template>
+            </a-button>&nbsp;&nbsp;&nbsp;
             <a-button size="small" type="primary" :href="`/api/sort/export?sort=${sortNum}&start_date=${searchDate[0]}&end_date=${searchDate[searchDate.length-1]}`">
               <template #icon>
                 <IconDownload />
@@ -83,7 +90,8 @@ import PoDetailService from '../../models/PoDetailService.js';
 import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
 
 const DetailTableCellStyle = {
-  "Fall Out Rate": { backgroundColor: 'rgb(245, 226, 226)' },
+  "INSPECTION FULL OUT RATE": { backgroundColor: 'rgba(245, 226, 226, 0.8)' },
+  "FULL OUT RATE INCLUDED REWORK": { backgroundColor: 'rgb(245, 226, 226)' },
   "TOTAL": { backgroundColor: 'rgb(253, 244, 211)' },
 };
 
@@ -116,7 +124,7 @@ export default {
     const dataSpanMethod = ({ record, column }) => {
       if (record.items === "OK" && DetailSpanHeader.indexOf(column.dataIndex) !== -1) {
         return {
-          rowspan: 6,
+          rowspan: 7,
           colspan: 1,
         }
       }

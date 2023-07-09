@@ -12,21 +12,29 @@
         <IconList /> Daily Summary Report
     </div>
     <div class="search-wapper">
-      <a-input-search 
+      <a-input-search
+        v-model:modelValue="searchStr"
         :style="{width:'400px'}" 
         placeholder="Please enter sort number" 
         allow-clear 
         search-button 
         :max-length="20"
-        @change="v => searchStr = v"
         @search="getSortList">
+        <!-- @change="v => searchStr = v" -->
         <template #button-icon>
           <icon-search/>
         </template>
         <template #button-default>
           Search
         </template>
-      </a-input-search>
+      </a-input-search>&nbsp;&nbsp;&nbsp;
+      <a-button type="primary" @click="handleSearchStrClear">
+        <template #icon>
+          <IconCloseCircle />
+        </template>
+        <!-- Use the default slot to avoid extra spaces -->
+        <template #default>Clear</template>
+      </a-button>
     </div>
     
     <div v-for="item in this.sortList" :key="item">
@@ -58,6 +66,14 @@ export default {
       this.sortList = await PoDetailService.getSortList(this.searchStr);
       // console.log(this.sortList);
     },
+    handleSearchStrClear() {
+      if (this.searchStr.length === 0) {
+        return;
+      }
+      this.searchStr = "";
+      console.log("handleSearchStrClear from header");
+      this.getSortList();
+    }
   },
   mounted() {
       this.getSortList()
