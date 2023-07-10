@@ -20,6 +20,7 @@
           <a-row align="center" justify="end">
             <a-config-provider :locale="enUS">
               <a-range-picker
+                v-model="dateRangeVal"
                 size="small"
                 style="width: 254px;"
                 @select="onDateRangeSelect"
@@ -32,7 +33,7 @@
             
             &nbsp;&nbsp;
             <a-button size="small" type="primary" @click="handleSearchBtnClick">Search</a-button>&nbsp;&nbsp;&nbsp;
-            <a-button size="small" type="primary" @click="onDateRangeClear">
+            <a-button size="small" type="primary" @click="handleClearBtnClick">
               <template #icon>
                 <IconCloseCircle />
               </template>
@@ -156,6 +157,7 @@ export default {
       // columns,
       detailData: [],
       dateRange: [],
+      dateRangeVal: [],
       enUS,
       invoiceListVisible: false,
     }
@@ -231,6 +233,10 @@ export default {
     onDateRangeClear() {
       this.dateRange = [];
       this.searchDate = getDefaultDateRange();
+    },
+    handleClearBtnClick() {
+      this.dateRangeVal = [];
+      this.onDateRangeClear();
     },
     handleInvoiceClick() {
       this.invoiceListVisible = !this.invoiceListVisible;
