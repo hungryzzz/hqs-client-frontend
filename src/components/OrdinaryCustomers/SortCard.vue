@@ -25,7 +25,6 @@
                 style="width: 254px;"
                 @select="onDateRangeSelect"
                 :placeholder="['Start Date', 'End Date']"
-                :disabledDate="disabledDate"
                 @clear="onDateRangeClear"
                 :timePickerProps="{hideDisabledOptions: true}"
               />
@@ -208,7 +207,7 @@ export default {
       this.onDateRangeClear();
     },
     onDateRangeSelect (valueString, value) {
-      value.sort();
+      value.sort((date1, date2) => date1.getTime() - date2.getTime() );
       console.log("after sort", value);
       this.dateRange = value;
     },
