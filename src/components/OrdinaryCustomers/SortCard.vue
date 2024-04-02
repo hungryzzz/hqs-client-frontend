@@ -208,6 +208,8 @@ export default {
       this.onDateRangeClear();
     },
     onDateRangeSelect (valueString, value) {
+      value.sort();
+      console.log("after sort", value);
       this.dateRange = value;
     },
     disabledDate(current) {

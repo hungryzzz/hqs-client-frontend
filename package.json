@@ -17,7 +17,7 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@arco-design/web-vue": "^2.36.1",
+    "@arco-design/web-vue": "^2.55.1",
     "@vitejs/plugin-vue": "^1.9.3",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
