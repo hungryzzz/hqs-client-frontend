@@ -224,7 +224,8 @@ export default {
       return false;
     },
     handleSearchBtnClick() {
-      const dateRangeLen = Math.abs((this.dateRange[1] - this.dateRange[0]) / (24 * 60 * 60 * 1000)) + 1;
+      const dateRangeLen = Math.round((this.dateRange[1] - this.dateRange[0]) / (24 * 60 * 60 * 1000)) + 1;
+      console.log(dateRangeLen);
       this.searchDate = [...Array(dateRangeLen).keys()].map(index => {
         const date = new Date(this.dateRange[0]);
         date.setDate(date.getDate() + index);
